@@ -13,7 +13,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&family=Sora:wght@600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@600;700;800&family=Unbounded:wght@600;800&display=swap" rel="stylesheet" />
 
   <style>
     /* =========================================================
@@ -350,7 +350,7 @@
     .cutoff { padding: 34px; border-color: rgba(34, 211, 238, .35); background: linear-gradient(160deg, rgba(34, 211, 238, .1), var(--card) 60%); }
     .cutoff:hover { transform: none; }
     .cutoff-clock { font-family: var(--font-display); font-weight: 700; font-size: 5rem; line-height: 1; letter-spacing: -.05em; margin-bottom: 14px; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .cutoff-clock small { font-size: 2rem; letter-spacing: 0; }
+    .cutoff-clock small { font-size: .42em; letter-spacing: 0; margin-left: 4px; vertical-align: top; position: relative; top: .22em; -webkit-text-fill-color: var(--accent-2); }
     .cutoff p strong { color: var(--text); }
     .cutoff-sub { margin-top: 12px; font-size: .9rem !important; }
 
@@ -364,39 +364,88 @@
     .ex-bar { display: flex; align-items: center; gap: 5px; padding: 9px 12px; background: #141725; border-bottom: 1px solid var(--border); }
     .ex-bar i { width: 7px; height: 7px; border-radius: 50%; background: #2b2f42; }
     .ex-bar span { margin-left: 8px; font-family: var(--font-mono); font-size: .64rem; color: var(--muted); }
-    .ex-site { height: 218px; padding: 20px 22px; display: flex; flex-direction: column; justify-content: center; gap: 12px; position: relative; overflow: hidden; }
-    .ex-site::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(260px 140px at 80% 0%, color-mix(in srgb, var(--a) 40%, transparent), transparent 70%); }
-    .ex-site > * { position: relative; }
-    .ex-site h4 { margin: 0; font-family: var(--font-display); font-size: 1.28rem; line-height: 1.12; letter-spacing: -.03em; }
-    .ex-site p { font-size: .78rem; color: var(--muted); }
-    .ex-nav { display: flex; align-items: center; justify-content: space-between; }
-    .ex-logo { width: 38px; height: 9px; border-radius: 5px; background: linear-gradient(90deg, var(--a), var(--b)); }
-    .ex-links { display: flex; gap: 6px; } .ex-links i { width: 20px; height: 5px; border-radius: 3px; background: rgba(255, 255, 255, .16); }
-    .ex-pillbtn { font-size: .62rem; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: linear-gradient(90deg, var(--a), var(--b)); color: #07080d; }
-    .ex-btn { display: inline-block; align-self: flex-start; font-size: .72rem; font-weight: 700; padding: 8px 16px; border-radius: 999px; background: linear-gradient(90deg, var(--a), var(--b)); color: #fff; }
-    .ex-wait .ex-form { display: flex; gap: 8px; align-items: center; }
-    .ex-wait .ex-form span { flex: 1; font-size: .72rem; padding: 9px 14px; border-radius: 999px; background: rgba(255, 255, 255, .07); border: 1px solid var(--border); color: var(--muted); }
-    .ex-wait .ex-form b { font-size: .72rem; padding: 9px 14px; border-radius: 999px; background: linear-gradient(90deg, var(--a), var(--b)); white-space: nowrap; }
-    .ex-dots { display: flex; gap: 5px; } .ex-dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255, 255, 255, .18); } .ex-dots i:first-child { background: var(--a); }
-    .ex-sale { background: #fbf6ec; color: #2a1c0c; flex-direction: row; align-items: center; gap: 18px; }
-    .ex-sale::before { background: radial-gradient(240px 140px at 90% 0%, rgba(250, 204, 21, .45), transparent 70%); }
-    .ex-sale .ex-prod { width: 96px; height: 116px; border-radius: 14px; flex-shrink: 0; display: grid; place-items: center; font-size: 2.6rem; background: linear-gradient(160deg, #f59e0b, #c2410c); box-shadow: 0 14px 26px -12px rgba(194, 65, 12, .8); }
-    .ex-sale .ex-info { display: grid; gap: 8px; }
-    .ex-sale em, .ex-event em { font-style: normal; font-family: var(--font-mono); font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--a); }
-    .ex-sale h4 { color: #2a1c0c; font-size: 1.1rem; }
-    .ex-price { font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; letter-spacing: -.03em; }
-    .ex-price s { font-size: .8rem; color: #8a7a64; font-weight: 500; margin-right: 4px; } .ex-price small { font-size: .7rem; font-weight: 500; color: #8a7a64; }
-    .ex-sale .ex-btn { background: #2a1c0c; }
-    .ex-saas { background: linear-gradient(160deg, #0b1511, #0b0d14); }
-    .ex-feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .ex-feats span { font-size: .68rem; text-align: center; padding: 10px 6px; border-radius: 10px; background: rgba(255, 255, 255, .05); border: 1px solid var(--border); color: var(--muted); }
-    .ex-feats b { display: block; font-size: 1.1rem; margin-bottom: 3px; font-weight: 400; }
-    .ex-event { flex-direction: row; align-items: center; gap: 18px; background: linear-gradient(160deg, #1a0b14, #0b0d14); }
-    .ex-event .ex-date { width: 92px; height: 108px; border-radius: 16px; flex-shrink: 0; display: grid; place-content: center; text-align: center; background: linear-gradient(160deg, var(--a), var(--b)); box-shadow: 0 14px 26px -10px rgba(236, 72, 153, .7); }
-    .ex-date strong { font-family: var(--font-display); font-size: 2.8rem; line-height: 1; letter-spacing: -.05em; }
-    .ex-date span { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .08em; }
-    .ex-event .ex-info { display: grid; gap: 8px; }
-    .ex-event h4 { font-size: 1.1rem; }
+    .ex-site { height: 268px; position: relative; overflow: hidden; container-type: inline-size; }
+    .ex-site h4 { margin: 0; letter-spacing: -.03em; }
+    .ex-site p { margin: 0; }
+
+    /* --- 1. Grana: fintech, dark green + lime, rounded (Sora) --- */
+    .s-grana { --lime: #c8f169; background: radial-gradient(320px 220px at 100% 0, rgba(200, 241, 105, .22), transparent 70%), #0b1a14; color: #f3fbe9; font-family: "Sora", sans-serif; display: flex; align-items: center; gap: 14px; padding: 22px 0 0 24px; }
+    .gr-copy { flex: 1; min-width: 0; display: grid; gap: 10px; align-self: center; padding-bottom: 20px; }
+    .gr-brand { display: flex; align-items: center; gap: 7px; font-weight: 700; font-size: .95rem; letter-spacing: -.02em; }
+    .gr-brand b { width: 22px; height: 22px; border-radius: 7px; background: var(--lime); color: #0b1a14; display: grid; place-items: center; font-size: .8rem; }
+    .s-grana h4 { font-size: 1.5rem; line-height: 1.08; font-weight: 700; }
+    .s-grana p { font-size: .72rem; color: #9db8a6; line-height: 1.5; }
+    .gr-form { display: flex; gap: 6px; align-items: center; margin-top: 2px; }
+    .gr-form span { flex: 1; min-width: 0; font-size: .64rem; padding: 9px 12px; border-radius: 999px; background: rgba(255, 255, 255, .08); color: #7f9a89; white-space: nowrap; overflow: hidden; }
+    .gr-form b { font-size: .64rem; padding: 9px 13px; border-radius: 999px; background: var(--lime); color: #0b1a14; white-space: nowrap; }
+    .gr-phone { width: 138px; flex-shrink: 0; align-self: flex-end; margin-right: 18px; height: 218px; border-radius: 22px 22px 0 0; border: 3px solid #25382f; border-bottom: 0; background: #12261d; transform: rotate(5deg) translateY(16px); padding: 12px 10px; box-shadow: 0 20px 40px -10px rgba(0, 0, 0, .6); }
+    .gr-screen { display: grid; gap: 7px; }
+    .gr-screen small { font-size: .52rem; color: #7f9a89; }
+    .gr-screen strong { font-size: 1.15rem; letter-spacing: -.04em; color: var(--lime); }
+    .gr-spark { width: 100%; height: 38px; }
+    .gr-row { display: flex; align-items: center; gap: 5px; padding: 7px 7px; border-radius: 9px; background: rgba(255, 255, 255, .06); font-size: .5rem; white-space: nowrap; }
+    .gr-row i { width: 14px; height: 14px; border-radius: 5px; background: #2a463a; }
+    .gr-row span { flex: 1; color: #c3d6c9; } .gr-row b { font-weight: 600; }
+    .gr-row b.up { color: var(--lime); }
+
+    /* --- 2. Torra: editorial coffee, cream + terracotta (Fraunces serif) --- */
+    .s-torra { background: #f4ead8; color: #2b1a10; font-family: "Fraunces", serif; padding: 18px 24px; display: flex; flex-direction: column; }
+    .to-top { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid rgba(43, 26, 16, .25); padding-bottom: 8px; }
+    .to-top span { font-weight: 700; font-size: 1.15rem; letter-spacing: .28em; }
+    .to-top em { font-size: .66rem; font-style: italic; color: #7b5a43; }
+    .to-main { flex: 1; display: flex; align-items: center; gap: 12px; }
+    .to-copy { flex: 1; min-width: 0; display: grid; gap: 9px; }
+    .s-torra h4 { font-size: 1.55rem; line-height: 1.06; font-weight: 600; }
+    .s-torra h4 i { color: #b4492a; font-weight: 500; }
+    .s-torra p { font-size: .7rem; color: #6b4e3a; font-family: "Inter", sans-serif; line-height: 1.5; }
+    .to-price { font-size: 1.5rem; font-weight: 700; letter-spacing: -.03em; }
+    .to-price s { font-size: .8rem; color: #a08670; font-weight: 400; margin-right: 6px; }
+    .to-price small { font-size: .68rem; font-weight: 400; color: #7b5a43; font-family: "Inter", sans-serif; }
+    .to-btn { justify-self: start; font-family: "Inter", sans-serif; font-size: .66rem; font-weight: 600; padding: 9px 16px; border-radius: 4px; background: #2b1a10; color: #f4ead8; letter-spacing: .02em; }
+    .to-bag { width: 112px; height: 168px; flex-shrink: 0; position: relative; border-radius: 6px 6px 10px 10px; background: linear-gradient(95deg, #b4492a, #cf6039 55%, #a43f22); transform: rotate(4deg); box-shadow: 14px 20px 30px -12px rgba(43, 26, 16, .55); display: grid; place-items: center; }
+    .to-bag::before { content: ""; position: absolute; top: -9px; left: 0; right: 0; height: 18px; background: repeating-linear-gradient(90deg, #8f3519 0 6px, #a43f22 6px 12px); clip-path: polygon(0 40%, 100% 40%, 100% 100%, 0 100%); border-radius: 3px 3px 0 0; }
+    .to-label { width: 82px; padding: 12px 6px; background: #f4ead8; text-align: center; border-radius: 3px; display: grid; gap: 3px; }
+    .to-label b { font-size: .78rem; letter-spacing: .22em; } .to-label small { font-family: "Inter", sans-serif; font-size: .42rem; letter-spacing: .12em; color: #7b5a43; } .to-label i { font-size: .6rem; color: #b4492a; font-style: italic; }
+    .to-seal { position: absolute; right: 118px; bottom: 16px; width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center; text-align: center; font-family: "Inter", sans-serif; font-size: .5rem; font-weight: 700; line-height: 1.25; letter-spacing: .06em; text-transform: uppercase; color: #fff; background: #1f6f54; transform: rotate(-12deg); border: 2px dashed rgba(255, 255, 255, .6); outline: 3px solid #1f6f54; }
+
+    /* --- 3. Fluxo: B2B SaaS, light + indigo, clean (Manrope) --- */
+    .s-fluxo { background: linear-gradient(#f6f7fb, #eef0f8); color: #0f172a; font-family: "Manrope", sans-serif; padding: 14px 22px 0; }
+    .s-fluxo::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(79, 70, 229, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 70, 229, .07) 1px, transparent 1px); background-size: 22px 22px; -webkit-mask-image: linear-gradient(#000, transparent 75%); mask-image: linear-gradient(#000, transparent 75%); }
+    .s-fluxo > * { position: relative; }
+    .fx-nav { display: flex; align-items: center; justify-content: space-between; font-size: .6rem; font-weight: 600; color: #475569; }
+    .fx-logo { display: flex; align-items: center; gap: 6px; font-weight: 800; font-size: .95rem; color: #0f172a; letter-spacing: -.03em; }
+    .fx-logo i { width: 18px; height: 18px; border-radius: 6px; background: conic-gradient(from 200deg, #4f46e5, #38bdf8, #4f46e5); }
+    .fx-links { display: flex; gap: 12px; }
+    .fx-cta { padding: 6px 12px; border-radius: 8px; background: #0f172a; color: #fff; }
+    .fx-hero { text-align: center; display: grid; gap: 7px; justify-items: center; margin-top: 16px; }
+    .s-fluxo h4 { font-size: 1.5rem; line-height: 1.08; font-weight: 800; }
+    .s-fluxo h4 u { text-decoration: none; color: #4f46e5; background: linear-gradient(transparent 70%, rgba(79, 70, 229, .18) 70%); }
+    .s-fluxo p { font-size: .7rem; color: #64748b; }
+    .fx-btn { margin-top: 3px; font-size: .64rem; font-weight: 700; padding: 8px 16px; border-radius: 9px; background: #4f46e5; color: #fff; box-shadow: 0 8px 18px -6px rgba(79, 70, 229, .7); }
+    .fx-ui { position: absolute !important; left: 50%; bottom: -34px; width: 78%; transform: translateX(-50%); background: #fff; border-radius: 14px 14px 0 0; padding: 12px 14px; box-shadow: 0 -10px 40px -10px rgba(15, 23, 42, .25); border: 1px solid #e2e8f0; display: grid; gap: 8px; }
+    .fx-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .fx-kpis span { font-size: .5rem; color: #64748b; padding: 6px 8px; border-radius: 8px; background: #f1f5f9; } .fx-kpis b { display: block; font-size: .82rem; color: #0f172a; letter-spacing: -.02em; }
+    .fx-chart { width: 100%; height: 42px; display: block; }
+
+    /* --- 4. Sprint Zero: neo-brutalist poster, yellow + ink (Unbounded) --- */
+    .s-sprint { background: #ffd93b; color: #111; font-family: "Unbounded", sans-serif; display: flex; flex-direction: column; }
+    .sp-tick { background: #111; color: #ffd93b; font-size: .5rem; font-weight: 600; letter-spacing: .16em; padding: 6px 0; white-space: nowrap; overflow: hidden; text-align: center; }
+    .sp-body { flex: 1; padding: 14px 22px 18px; display: grid; align-content: center; gap: 8px; position: relative; }
+    .sp-kicker { font-size: .54rem; font-weight: 600; letter-spacing: .12em; }
+    .s-sprint h4 { font-size: 2.1rem; line-height: .95; font-weight: 800; letter-spacing: -.05em; text-transform: uppercase; }
+    .s-sprint h4 span { background: #111; color: #ffd93b; padding: 0 6px; display: inline-block; transform: rotate(-1.5deg); }
+    .s-sprint p { font-family: "Manrope", sans-serif; font-size: .74rem; font-weight: 700; color: #111; max-width: 62%; }
+    .sp-btn { justify-self: start; margin-top: 4px; font-size: .58rem; font-weight: 700; padding: 10px 16px; background: #fff; border: 2px solid #111; box-shadow: 4px 4px 0 #111; letter-spacing: .03em; }
+    .sp-date { position: absolute; right: 18px; top: 16px; width: 82px; height: 82px; border-radius: 50%; background: #ff5da2; border: 2px solid #111; box-shadow: 4px 4px 0 #111; display: grid; place-content: center; text-align: center; transform: rotate(10deg); line-height: 1; }
+    .sp-date strong { font-size: 1.25rem; font-weight: 800; letter-spacing: -.05em; } .sp-date small { font-size: .46rem; font-weight: 600; margin-top: 4px; letter-spacing: .08em; }
+
+    @container (max-width: 360px) {
+      .gr-phone { display: none; }
+      .gr-copy { padding-right: 22px; }
+      .to-bag { width: 84px; height: 130px; } .to-seal { display: none; } .s-torra h4, .s-fluxo h4 { font-size: 1.3rem; }
+      .fx-links { display: none; }
+      .s-sprint h4 { font-size: 1.7rem; } .sp-date { width: 64px; height: 64px; } .sp-date strong { font-size: 1rem; }
+    }
     .ex-meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
     .ex-fic { font-family: var(--font-mono); font-size: .66rem; color: var(--muted); letter-spacing: .04em; }
     .ex h3 { font-size: 1.2rem; margin-bottom: 6px; }
@@ -483,9 +532,6 @@
       .assure { grid-template-columns: 1fr; }
       .cta-strip { padding: 22px; }
       .cta-strip .btn { width: 100%; }
-      .ex-site { height: auto; min-height: 218px; }
-      .ex-sale, .ex-event { flex-direction: column; align-items: flex-start; }
-      .ex-sale .ex-prod, .ex-event .ex-date { width: 100%; height: 72px; }
     }
 
     /* =========================================================
@@ -727,74 +773,96 @@
         </div>
 
         <div class="examples">
-          <!-- 1. Waitlist -->
-          <article class="spot ex reveal" style="--a:#7c5cff;--b:#22d3ee">
+          <!-- 1. Fintech waitlist -->
+          <article class="spot ex reveal">
             <div class="ex-frame">
-              <div class="ex-bar"><i></i><i></i><i></i><span>fila.exemplo.com</span></div>
-              <div class="ex-site ex-wait">
-                <div class="ex-nav"><b class="ex-logo"></b><span class="ex-links"><i></i><i></i></span></div>
-                <h4>Controle suas contas sem planilha.</h4>
-                <p>Entre na fila e teste antes de todo mundo.</p>
-                <div class="ex-form"><span>voce@email.com</span><b>Entrar na fila</b></div>
-                <div class="ex-dots"><i></i><i></i><i></i></div>
-              </div>
-            </div>
-            <div class="ex-meta"><span class="pill">Lista de espera</span><span class="ex-fic">exemplo fictício</span></div>
-            <h3>App de finanças pessoais</h3>
-            <p>Mede quantas pessoas deixam o e-mail a cada 100 visitas.</p>
-          </article>
-
-          <!-- 2. Pre-sale -->
-          <article class="spot ex reveal" style="--a:#ea580c;--b:#facc15;--d:.08s">
-            <div class="ex-frame">
-              <div class="ex-bar"><i></i><i></i><i></i><span>pre-venda.exemplo.com</span></div>
-              <div class="ex-site ex-sale">
-                <div class="ex-prod"><span>☕</span></div>
-                <div class="ex-info">
-                  <em>Pré-venda aberta</em>
-                  <h4>Café especial por assinatura</h4>
-                  <div class="ex-price"><s>R$ 79</s> R$ 49<small>/mês</small></div>
-                  <div class="ex-btn">Garantir o meu</div>
+              <div class="ex-bar"><i></i><i></i><i></i><span>grana.exemplo.com</span></div>
+              <div class="ex-site s-grana">
+                <div class="gr-copy">
+                  <div class="gr-brand"><b>g</b>grana</div>
+                  <h4>Seu dinheiro,<br>sem planilha.</h4>
+                  <p>Contas, metas e gastos em um só lugar. Acesso antecipado.</p>
+                  <div class="gr-form"><span>seu@email.com</span><b>Quero entrar</b></div>
+                </div>
+                <div class="gr-phone" aria-hidden="true">
+                  <div class="gr-screen">
+                    <small>Saldo do mês</small>
+                    <strong>R$ 2.480</strong>
+                    <svg class="gr-spark" viewBox="0 0 100 38" preserveAspectRatio="none"><defs><linearGradient id="grg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8f169" stop-opacity=".4"/><stop offset="1" stop-color="#c8f169" stop-opacity="0"/></linearGradient></defs><path d="M0 30 L14 24 L28 27 L44 14 L60 18 L76 8 L100 4 L100 38 L0 38Z" fill="url(#grg)"/><path d="M0 30 L14 24 L28 27 L44 14 L60 18 L76 8 L100 4" fill="none" stroke="#c8f169" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+                    <div class="gr-row"><i></i><span>Mercado</span><b>−R$ 312</b></div>
+                    <div class="gr-row"><i></i><span>Salário</span><b class="up">+R$ 4.100</b></div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="ex-meta"><span class="pill">Pré-venda</span><span class="ex-fic">exemplo fictício</span></div>
-            <h3>Produto físico por assinatura</h3>
-            <p>Mede quantas pessoas clicam em comprar antes de o produto existir.</p>
+            <div class="ex-meta"><span class="pill">Lista de espera</span><span class="ex-fic">exemplo fictício</span></div>
+            <h3>Grana · app de finanças pessoais</h3>
+            <p>Visual de fintech, escuro e arredondado. Mede quantas pessoas deixam o e-mail a cada 100 visitas.</p>
           </article>
 
-          <!-- 3. SaaS -->
-          <article class="spot ex reveal" style="--a:#10b981;--b:#a3e635;--d:.16s">
+          <!-- 2. Coffee pre-sale -->
+          <article class="spot ex reveal" style="--d:.08s">
             <div class="ex-frame">
-              <div class="ex-bar"><i></i><i></i><i></i><span>app.exemplo.com</span></div>
-              <div class="ex-site ex-saas">
-                <div class="ex-nav"><b class="ex-logo"></b><span class="ex-pillbtn">Pedir acesso</span></div>
-                <h4>Relatórios prontos em 1 clique.</h4>
-                <div class="ex-feats"><span><b>📈</b>Vendas</span><span><b>🧾</b>Notas</span><span><b>🔔</b>Alertas</span></div>
-                <div class="ex-btn">Quero testar grátis</div>
+              <div class="ex-bar"><i></i><i></i><i></i><span>torra.exemplo.com</span></div>
+              <div class="ex-site s-torra">
+                <div class="to-top"><span>TORRA</span><em>cafés especiais, toda semana</em></div>
+                <div class="to-main">
+                  <div class="to-copy">
+                    <h4>Do grão à xícara, <i>todo mês.</i></h4>
+                    <p>Assinatura de cafés especiais torrados na semana e entregues em casa.</p>
+                    <div class="to-price"><s>R$ 79</s>R$ 49<small>/mês</small></div>
+                    <span class="to-btn">Garantir minha caixa →</span>
+                  </div>
+                  <div class="to-bag" aria-hidden="true"><div class="to-label"><b>TORRA</b><i>Etiópia</i><small>250 G · FLORAL</small></div></div>
+                </div>
+                <span class="to-seal">pré-venda<br>−40%</span>
+              </div>
+            </div>
+            <div class="ex-meta"><span class="pill">Pré-venda</span><span class="ex-fic">exemplo fictício</span></div>
+            <h3>Torra · assinatura de café</h3>
+            <p>Visual editorial, quente e com serifa. Mede quantas pessoas clicam em comprar antes de o produto existir.</p>
+          </article>
+
+          <!-- 3. B2B SaaS -->
+          <article class="spot ex reveal" style="--d:.16s">
+            <div class="ex-frame">
+              <div class="ex-bar"><i></i><i></i><i></i><span>fluxo.exemplo.com</span></div>
+              <div class="ex-site s-fluxo">
+                <div class="fx-nav"><span class="fx-logo"><i></i>fluxo</span><span class="fx-links"><span>Produto</span><span>Preços</span><span>Docs</span></span><span class="fx-cta">Pedir acesso</span></div>
+                <div class="fx-hero">
+                  <h4>Relatórios prontos <u>em 1 clique.</u></h4>
+                  <p>Pare de montar planilha toda segunda-feira.</p>
+                  <span class="fx-btn">Testar grátis</span>
+                </div>
+                <div class="fx-ui" aria-hidden="true">
+                  <div class="fx-kpis"><span>Receita<b>R$ 84k</b></span><span>Pedidos<b>1.206</b></span><span>Ticket<b>R$ 70</b></span></div>
+                  <svg class="fx-chart" viewBox="0 0 200 42" preserveAspectRatio="none"><path d="M0 34 C 24 30, 40 36, 62 24 S 104 28, 128 14 S 176 18, 200 6" fill="none" stroke="#4f46e5" stroke-width="2.4" stroke-linecap="round"/><path d="M0 34 C 24 30, 40 36, 62 24 S 104 28, 128 14 S 176 18, 200 6 L200 42 L0 42Z" fill="rgba(79,70,229,.1)"/></svg>
+                </div>
               </div>
             </div>
             <div class="ex-meta"><span class="pill">Software (SaaS)</span><span class="ex-fic">exemplo fictício</span></div>
-            <h3>Ferramenta para pequenas empresas</h3>
-            <p>Mede o interesse real em acesso antecipado ao produto.</p>
+            <h3>Fluxo · relatórios para pequenas empresas</h3>
+            <p>Visual claro, limpo e corporativo. Mede o interesse real em acesso antecipado ao produto.</p>
           </article>
 
-          <!-- 4. Event -->
-          <article class="spot ex reveal" style="--a:#ec4899;--b:#f43f5e;--d:.24s">
+          <!-- 4. Event / poster -->
+          <article class="spot ex reveal" style="--d:.24s">
             <div class="ex-frame">
-              <div class="ex-bar"><i></i><i></i><i></i><span>evento.exemplo.com</span></div>
-              <div class="ex-site ex-event">
-                <div class="ex-date"><strong>12</strong><span>NOV · 19h</span></div>
-                <div class="ex-info">
-                  <em>Workshop online e gratuito</em>
-                  <h4>Como validar sua ideia em uma semana</h4>
-                  <div class="ex-btn">Garantir minha vaga</div>
+              <div class="ex-bar"><i></i><i></i><i></i><span>sprintzero.exemplo.com</span></div>
+              <div class="ex-site s-sprint">
+                <div class="sp-tick">WORKSHOP ONLINE ✦ GRATUITO ✦ VAGAS LIMITADAS ✦ WORKSHOP ONLINE ✦ GRATUITO</div>
+                <div class="sp-body">
+                  <span class="sp-kicker">UMA SEMANA PARA TESTAR</span>
+                  <h4>Sprint<br><span>Zero</span></h4>
+                  <p>Valide sua ideia antes de escrever uma linha de código.</p>
+                  <span class="sp-btn">GARANTIR MINHA VAGA →</span>
+                  <div class="sp-date" aria-hidden="true"><strong>12/11</strong><small>19H · ONLINE</small></div>
                 </div>
               </div>
             </div>
             <div class="ex-meta"><span class="pill">Evento / convite</span><span class="ex-fic">exemplo fictício</span></div>
-            <h3>Workshop ou lançamento</h3>
-            <p>Mede as inscrições para saber se vale a pena fazer o evento.</p>
+            <h3>Sprint Zero · workshop online</h3>
+            <p>Visual de cartaz, ousado e cheio de cor. Mede as inscrições para saber se vale a pena fazer o evento.</p>
           </article>
         </div>
       </div>
