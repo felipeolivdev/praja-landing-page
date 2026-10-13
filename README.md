@@ -77,7 +77,9 @@ A galeria é de propósito um contraponto: cada exemplo (Grana, Torra, Fluxo e S
 ├── assets/
 │   ├── og.html       # Fonte da imagem de compartilhamento
 │   ├── og.png        # Imagem social (1200x630) das metatags Open Graph
+│   ├── apple-touch-icon.png  # Ícone para a tela inicial do iPhone
 │   └── preview.png   # Captura usada neste README
+├── vercel.json       # Cabeçalhos de segurança e cache
 ├── LICENSE
 └── README.md
 ```
@@ -94,7 +96,7 @@ npx serve .
 
 | O que mudar | Onde |
 |---|---|
-| Número do WhatsApp | constante `WHATSAPP_NUMBER` no final do `index.html` (DDI + DDD + número, só dígitos) |
+| Número do WhatsApp | constante `WHATSAPP_NUMBER` no final do `index.html` (DDI + DDD + número, só dígitos). Enquanto o número for só zeros (fictício), os botões abrem uma janela mostrando a mensagem que seria enviada; com um número real, abrem o WhatsApp direto |
 | Telefone exibido | `.phone`, na seção final |
 | Nome e logotipo | `<title>`, metatags, SVG do logotipo no header e `assets/og.html` |
 | Cores | variáveis CSS em `:root`, no início do `<style>` |
