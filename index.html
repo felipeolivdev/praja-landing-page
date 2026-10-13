@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Um Dia Studio — A página do seu negócio em um dia</title>
+  <title>PraJá.studio — A página do seu negócio em um dia</title>
   <meta name="description" content="Valide sua ideia rápido. Eu faço a landing page da sua startup em um dia, pronta para receber tráfego e leads." />
-  <meta property="og:title" content="Um Dia Studio — A página do seu negócio em um dia" />
+  <meta property="og:title" content="PraJá.studio — A página do seu negócio em um dia" />
   <meta property="og:description" content="Landing pages para startups que precisam validar ideias rápido. Entrega em 24 horas." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#07080d" />
@@ -163,9 +163,6 @@
     .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; opacity: 0; animation: fade .8s .65s forwards; }
     @keyframes fade { to { opacity: 1; } }
     .hero-trust { display: flex; align-items: center; gap: 14px; margin-top: 38px; color: var(--muted); font-size: .88rem; opacity: 0; animation: fade .8s .8s forwards; }
-    .avatars { display: flex; }
-    .avatars span { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--bg); margin-left: -9px; display: grid; place-items: center; font-size: .72rem; font-weight: 700; color: #fff; }
-    .avatars span:first-child { margin-left: 0; }
 
     /* ---- Browser mockup that builds itself ---- */
     .stage { position: relative; perspective: 1400px; opacity: 0; animation: fade 1s .5s forwards; }
@@ -211,8 +208,8 @@
     .marquee { padding: 26px 0; border-block: 1px solid var(--border); background: rgba(255, 255, 255, .02); overflow: hidden; }
     .marquee-track { display: flex; gap: 56px; width: max-content; animation: scroll 38s linear infinite; }
     .marquee:hover .marquee-track { animation-play-state: paused; }
-    .marquee span { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, .28); white-space: nowrap; display: flex; align-items: center; gap: 56px; }
-    .marquee span::after { content: "✦"; color: var(--accent); -webkit-text-stroke: 0; font-size: 1rem; }
+    .marquee span { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: #e6e8f6; white-space: nowrap; display: flex; align-items: center; gap: 56px; }
+    .marquee span::after { content: "✦"; color: var(--accent-2); font-size: 1rem; }
     @keyframes scroll { to { transform: translateX(-50%); } }
 
     /* =========================================================
@@ -327,7 +324,7 @@
        ========================================================= */
     .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 44px 20px; border-block: 1px solid var(--border); text-align: center; }
     .stats strong { display: block; font-family: var(--font-display); font-size: clamp(2.2rem, 4.4vw, 3.4rem); letter-spacing: -.04em; }
-    .stats span { color: var(--muted); font-size: .92rem; }
+    .stats div > span { color: var(--muted); font-size: .92rem; }
 
     /* =========================================================
        15. FAQ
@@ -411,7 +408,7 @@
   <!-- ===== Header ===== -->
   <header>
     <div class="container nav" style="width:100%">
-      <a href="#" class="logo"><b>⚡</b> Um Dia Studio</a>
+      <a href="#" class="logo"><b>⚡</b> <span>PraJá<span class="grad">.studio</span></span></a>
       <ul>
         <li><a href="#problema">Por quê</a></li>
         <li><a href="#processo">Processo</a></li>
@@ -428,7 +425,7 @@
     <section class="hero">
       <div class="container hero-inner">
         <div>
-          <span class="badge"><span class="dot"></span> Agenda aberta · <strong id="slots" style="color:var(--text)">3</strong> vagas esta semana</span>
+          <span class="badge"><span class="dot"></span> Agenda aberta · página no ar em <strong style="color:var(--text)">24 horas</strong></span>
           <h1>
             <span class="line"><span>Faço a página</span></span>
             <span class="line"><span>do seu negócio</span></span>
@@ -450,10 +447,7 @@
             <a class="btn btn-ghost" href="#demo">Testar ao vivo <span class="arrow">→</span></a>
           </div>
           <div class="hero-trust">
-            <div class="avatars" aria-hidden="true">
-              <span style="background:#7c5cff">AL</span><span style="background:#0ea5e9">MR</span><span style="background:#10b981">JP</span><span style="background:#f59e0b">+</span>
-            </div>
-            <span>Fundadores que validaram ideias sem esperar semanas</span>
+            <span>✦ Sem reuniões longas &nbsp;·&nbsp; ✦ Preço fechado &nbsp;·&nbsp; ✦ Entrega em 24h</span>
           </div>
         </div>
 
@@ -512,7 +506,7 @@
             </ul>
           </div>
           <div class="spot good reveal" style="--d:.12s">
-            <h3>Do jeito Um Dia <span class="pill">24 HORAS</span></h3>
+            <h3>Do jeito PraJá<span class="pill">24 HORAS</span></h3>
             <ul>
               <li>Uma conversa rápida no WhatsApp e eu começo na hora</li>
               <li>Copy, design e código feitos por uma pessoa só: zero ruído</li>
@@ -603,8 +597,8 @@
         </div>
         <div class="demo">
           <div class="demo-form reveal">
-            <div class="field"><label for="inName">Nome da startup</label><input id="inName" maxlength="24" placeholder="Ex.: Pagaê" autocomplete="off" /></div>
-            <div class="field"><label for="inTag">Sua promessa em uma frase</label><input id="inTag" maxlength="60" placeholder="Ex.: Divida contas sem estresse" autocomplete="off" /></div>
+            <div class="field"><label for="inName">Nome da startup</label><input id="inName" maxlength="24" placeholder="Ex.: Minha Startup" autocomplete="off" /></div>
+            <div class="field"><label for="inTag">Sua promessa em uma frase</label><input id="inTag" maxlength="60" placeholder="Ex.: Resolva isso em um clique" autocomplete="off" /></div>
             <div class="field">
               <label>Cor da marca</label>
               <div class="swatches" id="swatches">
@@ -699,7 +693,7 @@
           <h2>Sua ideia no ar <span class="grad">amanhã</span>.</h2>
           <p>Chame no WhatsApp, conte o que você quer testar e receba uma proposta na hora.</p>
           <a class="btn btn-primary js-wa" href="#">Chamar no WhatsApp <span class="arrow">→</span></a>
-          <span class="phone">(00) 12345-6789</span>
+          <span class="phone">(00) 00000-0000 · número fictício</span>
         </div>
       </div>
     </section>
@@ -707,7 +701,7 @@
 
   <footer>
     <div class="container foot">
-      <span>© <span id="year">2026</span> Um Dia Studio. Todos os direitos reservados.</span>
+      <span>© <span id="year">2026</span> PraJá.studio · Protótipo fictício para fins didáticos.</span>
       <span>Feito em um dia, claro. ⚡</span>
     </div>
   </footer>
@@ -718,7 +712,7 @@
 
   <script>
     // Número fictício: troque por um real, apenas dígitos com DDI + DDD (ex.: 5511912345678).
-    const WHATSAPP_NUMBER = "00123456789";
+    const WHATSAPP_NUMBER = "00000000000";
 
     const $ = (s, el = document) => el.querySelector(s);
     const $$ = (s, el = document) => [...el.querySelectorAll(s)];
@@ -817,8 +811,6 @@
       setInterval(() => { i = (i + 1) % (steps.length + 1); show(i === steps.length ? 0 : i); }, 1400);
     })();
 
-    /* ---------- Fake urgency counter (decorative) ---------- */
-    $("#slots").textContent = 1 + (new Date().getDate() % 4);
 
     /* ---------- Scroll-driven timeline ---------- */
     const tl = $("#timeline"), tlFill = $("#tlFill"), tlSteps = $$(".tl-step");

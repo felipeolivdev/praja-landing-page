@@ -1,19 +1,22 @@
-# ⚡ One Day Landing Page
+# ⚡ PraJá.studio — One Day Landing Page
 
-Landing page (arquivo único em HTML) do serviço **"Faço a página do seu negócio em um dia"**, voltado a startups que precisam validar ideias rapidamente.
+> **⚠️ Protótipo fictício, feito para fins de estudo e didáticos.**
+> A marca **PraJá.studio**, os pacotes, os preços, os prazos, as condições de pagamento e o número de WhatsApp `(00) 00000-0000` são **inventados**. Este projeto não representa um negócio real nem oferece nenhum serviço.
 
-## Sobre o projeto
+Landing page (arquivo único em HTML) para o serviço fictício **"Faço a página do seu negócio em um dia"**, voltado a startups que precisam validar ideias rapidamente.
 
-A página apresenta o problema (validar ideias leva tempo demais), a solução (landing page pronta em 24h), o processo em três passos, pacotes de preço e um FAQ. Todos os botões levam a uma conversa no WhatsApp.
+🔗 **Demo:** https://one-day-landing-page.vercel.app
 
-> Marca, preços e telefone são **fictícios**. Substitua-os antes de usar de verdade.
+## Objetivo
+
+Praticar e demonstrar a criação de uma landing page moderna usando apenas HTML, CSS e JavaScript puros: identidade visual consistente, animações, interações e responsividade, sem frameworks nem etapa de build.
 
 ## Destaques de design
 
-- Identidade escura com gradiente violeta → ciano, tipografia Space Grotesk + Inter + JetBrains Mono
-- Mockup de navegador que "constrói a página" em loop (0h → 24h) com leve efeito 3D ao mover o mouse
+- Identidade escura com gradiente violeta → ciano; tipografia Space Grotesk, Inter e JetBrains Mono
+- Mockup de navegador que "constrói a página" em loop (0h → 24h), com leve efeito 3D ao mover o mouse
 - Linha do tempo guiada pelo scroll, cards com spotlight, botões magnéticos e contadores animados
-- **Demo ao vivo:** o visitante digita nome e promessa da startup e vê a prévia na hora; o texto vai pré-preenchido no WhatsApp
+- **Demo ao vivo:** o visitante digita nome e promessa da startup e vê a prévia na hora; o texto vai pré-preenchido no link do WhatsApp
 - Aurora animada, grão sutil, barra de progresso de leitura e animações de entrada
 - Responsivo e respeita `prefers-reduced-motion`
 
@@ -30,7 +33,7 @@ A página apresenta o problema (validar ideias leva tempo demais), a solução (
 ## Tecnologias
 
 - HTML5 e CSS3 (sem frameworks, sem build)
-- JavaScript puro, apenas para montar os links do WhatsApp
+- JavaScript puro, para animações, interações e para montar os links do WhatsApp
 
 ## Rodando localmente
 
@@ -45,7 +48,7 @@ npx serve .
 | O que mudar | Onde |
 |---|---|
 | Número do WhatsApp | constante `WHATSAPP_NUMBER` no final do `index.html` (DDI + DDD + número, só dígitos) |
-| Telefone exibido | seção "Final CTA" do `index.html` |
+| Telefone exibido | seção final (`.phone`) do `index.html` |
 | Nome da marca | `<title>`, logo no header e rodapé |
 | Preços e pacotes | seção `#pacotes` |
 | Cores | variáveis CSS em `:root` |
