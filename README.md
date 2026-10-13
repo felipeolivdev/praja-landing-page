@@ -1,11 +1,13 @@
-# ⚡ PraJá.studio — One Day Landing Page
+# ⚡ PraJá.studio
 
 > **⚠️ Protótipo fictício, feito para fins de estudo e didáticos.**
 > A marca **PraJá.studio**, os pacotes, os preços, os prazos, as condições de pagamento e o número de WhatsApp `(00) 00000-0000` são **inventados**. Este projeto não representa um negócio real nem oferece nenhum serviço.
 
-Landing page (arquivo único em HTML) para o serviço fictício **"Faço a página do seu negócio em um dia"**, voltado a startups que precisam validar ideias rapidamente.
+> **Quer uma página pro seu negócio? É PraJá.**
 
-🔗 **Demo:** https://one-day-landing-page.vercel.app
+Landing page (arquivo único em HTML) do estúdio fictício **PraJá.studio**, que entrega páginas em 24 horas para startups que precisam validar ideias rapidamente.
+
+🔗 **Demo:** https://praja-studio.vercel.app
 
 ## Objetivo
 
