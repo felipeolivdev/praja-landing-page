@@ -131,7 +131,7 @@
       border: 1.5px solid var(--line-strong); transition: border-color .25s;
     }
     header.scrolled { border-color: var(--zap); }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 58px; padding: 0 10px 0 16px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 58px; padding: 0 16px 0 18px; }
     .logo { display: inline-flex; align-items: center; font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; letter-spacing: -.045em; }
     .logo svg { width: 34px; height: 34px; flex-shrink: 0; margin-right: 10px; transition: transform .25s var(--snap); }
     .logo:hover svg { transform: rotate(-8deg) scale(1.08); }
@@ -242,7 +242,7 @@
     .cmp-head .us { color: var(--zap); }
     .note { color: var(--muted); font-size: .85rem; margin-top: 26px; text-align: center; }
 
-    .cta-strip { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 40px; padding: 24px 30px; border-radius: var(--radius); background: var(--surface); border: 1.5px solid var(--line-strong); box-shadow: inset 0 3px 0 var(--zap); }
+    .cta-strip { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 40px; padding: 24px 36px 24px 30px; border-radius: var(--radius); background: var(--surface); border: 1.5px solid var(--line-strong); box-shadow: inset 0 3px 0 var(--zap); }
     .cta-strip strong { display: block; font-family: var(--font-display); font-size: 1.5rem; letter-spacing: -.035em; line-height: 1.1; }
     .cta-strip span { color: var(--muted); }
 
@@ -540,7 +540,7 @@
     .wa-float svg { width: 30px; height: 30px; fill: var(--on-zap); }
     .sticky-cta {
       position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 44; display: none; align-items: center; justify-content: space-between; gap: 12px;
-      padding: 10px 10px 10px 20px; border-radius: 999px; border: 1.5px solid var(--zap); background: rgba(10, 10, 13, .94); color: var(--fg);
+      padding: 10px 16px 10px 22px; border-radius: 999px; border: 1.5px solid var(--zap); background: rgba(10, 10, 13, .94); color: var(--fg);
       transform: translateY(150%); transition: transform .35s var(--snap);
     }
     .sticky-cta.show { transform: none; }
@@ -572,7 +572,7 @@
     .ex-frame::after { content: "Ampliar ⤢"; position: absolute; right: 10px; bottom: 10px; padding: 5px 11px; border-radius: 6px; background: rgba(10, 10, 13, .9); color: var(--zap); font-family: var(--font-mono); font-size: .72rem; font-weight: 500; opacity: 0; transform: translateY(4px); transition: opacity .2s, transform .2s var(--snap); }
     .ex:hover .ex-frame::after, .ex:focus-visible .ex-frame::after { opacity: 1; transform: none; }
     @media (hover: none) { .ex-frame::after { opacity: 1; transform: none; } }
-    dialog#exModal { padding: 0; border: 1.5px solid var(--line-strong); border-radius: 20px; background: var(--surface); color: var(--fg); width: min(940px, calc(100% - 28px)); max-height: calc(100dvh - 28px); overflow: auto; box-shadow: inset 0 3px 0 var(--zap), 0 40px 120px -20px rgba(0, 0, 0, .8); }
+    dialog#exModal { padding: 0; border: 1.5px solid var(--line-strong); border-radius: 20px; background: var(--surface); color: var(--fg); width: min(940px, calc(100% - 32px)); max-height: calc(100dvh - 28px); overflow: auto; box-shadow: inset 0 3px 0 var(--zap), 0 40px 120px -20px rgba(0, 0, 0, .8); }
     dialog#exModal::backdrop { background: rgba(5, 5, 8, .8); backdrop-filter: blur(4px); }
     dialog#exModal[open] { animation: pop .28s var(--snap); }
     @keyframes pop { from { opacity: 0; transform: translateY(16px) scale(.98); } }
@@ -614,6 +614,33 @@
     @media (max-width: 860px) { .faq { grid-template-columns: 1fr; } }
     @media (max-width: 720px) { .ex-modal-stage .ex-frame { zoom: 1; } }
     @media (prefers-reduced-motion: reduce) { .cursor-glow { display: none; } dialog#exModal[open] { animation: none; } }
+
+
+    /* =========================================================
+       13c. MENU MOBILE E ESPAÇAMENTOS
+       ========================================================= */
+    .menu-btn { display: none; width: 46px; height: 40px; padding: 0 11px; border: 1.5px solid var(--line-strong); border-radius: 12px; background: transparent; cursor: pointer; align-content: center; justify-items: end; gap: 6px; }
+    .menu-btn i { display: block; height: 2.5px; border-radius: 2px; background: var(--zap); transition: transform .25s var(--snap), width .25s var(--snap); }
+    .menu-btn i:first-child { width: 22px; } .menu-btn i:last-child { width: 13px; }
+    .menu-btn[aria-expanded="true"] i { width: 22px; }
+    .menu-btn[aria-expanded="true"] i:first-child { transform: translateY(4.25px) rotate(45deg); }
+    .menu-btn[aria-expanded="true"] i:last-child { transform: translateY(-4.25px) rotate(-45deg); }
+    .mobile-nav { position: fixed; top: 84px; left: 14px; right: 14px; z-index: 39; display: grid; gap: 2px; padding: 10px; border-radius: 16px; background: rgba(10, 10, 13, .97); backdrop-filter: blur(12px); border: 1.5px solid var(--line-strong); box-shadow: inset 0 3px 0 var(--zap), 0 30px 60px -20px rgba(0, 0, 0, .8); animation: pop .22s var(--snap); }
+    .mobile-nav[hidden] { display: none; }
+    .mobile-nav a:not(.btn) { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-radius: 10px; font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: 1.1rem; letter-spacing: -.02em; }
+    .mobile-nav a:not(.btn)::before { content: "//"; font-family: var(--font-mono); font-weight: 700; font-size: .9rem; color: var(--zap); }
+    .mobile-nav a:not(.btn):hover, .mobile-nav a:not(.btn):active { background: var(--surface-2); }
+    .mobile-nav .btn { margin: 10px 8px 6px; }
+    @media (min-width: 981px) { .mobile-nav { display: none !important; } }
+    @media (max-width: 980px) {
+      .nav > .btn { display: none; }
+      .menu-btn { display: grid; }
+      .nav { padding: 0 8px 0 16px; }
+    }
+    @media (max-width: 560px) {
+      .container { width: calc(100% - 48px); }
+      .nav { padding: 0 8px 0 14px; }
+    }
 
     /* =========================================================
        14. REVEAL
@@ -667,7 +694,6 @@
       .logo { font-size: 1.25rem; }
       .logo em { display: none; }
       .nav { padding: 0 8px 0 14px; height: 54px; }
-      .nav .btn { padding: 9px 14px; font-size: .82rem; white-space: nowrap; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -714,8 +740,19 @@
         <li><a href="#faq">FAQ</a></li>
       </ul>
       <a class="btn btn-primary js-wa" href="#">Falar no WhatsApp</a>
+      <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menu"><i></i><i></i></button>
     </div>
   </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu principal" hidden>
+    <a href="#processo">Processo</a>
+    <a href="#exemplos">Exemplos</a>
+    <a href="#resultado">Resultados</a>
+    <a href="#demo">Briefing</a>
+    <a href="#pacotes">Pacotes</a>
+    <a href="#faq">FAQ</a>
+    <a class="btn btn-primary js-wa" href="#">Falar no WhatsApp</a>
+  </nav>
 
   <main id="conteudo">
     <!-- ===== Hero ===== -->
@@ -1514,13 +1551,35 @@
       setInterval(update, 60000); // mantém o horário previsto atualizado
     })();
 
-    /* ---------- Sticky CTA bar (mobile): show after hero, hide near the final CTA ---------- */
+    /* ---------- Barra fixa de WhatsApp (celular): some quando já há outro botão de contato à vista ---------- */
     (function sticky() {
-      const bar = $("#stickyCta"), hero = $(".hero"), end = $(".cta-box");
-      let pastHero = false, atEnd = false;
-      const sync = () => bar.classList.toggle("show", pastHero && !atEnd);
+      const bar = $("#stickyCta"), hero = $(".hero");
+      const zones = [$("#demo"), $("#pacotes"), $(".cta-box"), ...$$(".cta-strip")];
+      const active = new Set();
+      let pastHero = false;
+      const sync = () => bar.classList.toggle("show", pastHero && active.size === 0);
       new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; sync(); }).observe(hero);
-      new IntersectionObserver(([e]) => { atEnd = e.isIntersecting; sync(); }).observe(end);
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => (e.isIntersecting ? active.add(e.target) : active.delete(e.target)));
+        sync();
+      }, { threshold: .05 });
+      zones.forEach((z) => io.observe(z));
+    })();
+
+    /* ---------- Menu mobile ---------- */
+    (function menu() {
+      const btn = $("#menuBtn"), nav = $("#mobileNav");
+      if (!btn || !nav) return;
+      const set = (open) => {
+        nav.hidden = !open;
+        btn.setAttribute("aria-expanded", String(open));
+        btn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+      };
+      btn.addEventListener("click", () => set(nav.hidden));
+      nav.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); });
+      addEventListener("keydown", (e) => { if (e.key === "Escape") set(false); });
+      document.addEventListener("click", (e) => { if (!nav.hidden && !nav.contains(e.target) && !btn.contains(e.target)) set(false); });
+      matchMedia("(min-width: 981px)").addEventListener("change", (m) => { if (m.matches) set(false); });
     })();
 
     onScroll();
