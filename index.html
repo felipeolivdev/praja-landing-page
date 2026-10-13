@@ -243,6 +243,9 @@
     .note { color: var(--muted); font-size: .85rem; margin-top: 26px; text-align: center; }
 
     .cta-strip { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 40px; padding: 24px 36px 24px 30px; border-radius: var(--radius); background: var(--surface); border: 1.5px solid var(--line-strong); box-shadow: inset 0 3px 0 var(--zap); }
+    .cta-link { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; padding: 8px 0; font-weight: 700; color: var(--zap); border-bottom: 2px solid var(--zap); transition: gap .2s var(--snap), color .2s; }
+    .cta-link:hover { gap: 16px; color: var(--fg); border-color: var(--fg); }
+    .cta-link .arrow { transition: none; }
     .cta-strip strong { display: block; font-family: var(--font-display); font-size: 1.5rem; letter-spacing: -.035em; line-height: 1.1; }
     .cta-strip span { color: var(--muted); }
 
@@ -535,9 +538,6 @@
     .phone { display: block; margin-top: 24px; color: var(--muted); font-family: var(--font-mono); font-size: .9rem; }
     footer { border-top: 1.5px solid var(--line); padding: 34px 0; color: var(--muted); font-size: .9rem; margin-top: 40px; }
     .foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-    .wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 45; width: 60px; height: 60px; border-radius: 50%; background: var(--zap); display: grid; place-items: center; box-shadow: 0 12px 30px -8px rgba(255, 214, 10, .55); transition: transform .16s var(--snap); }
-    .wa-float:hover { transform: translateY(-3px) rotate(-6deg); }
-    .wa-float svg { width: 30px; height: 30px; fill: var(--on-zap); }
     .sticky-cta {
       position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 44; display: none; align-items: center; justify-content: space-between; gap: 12px;
       padding: 10px 16px 10px 22px; border-radius: 999px; border: 1.5px solid var(--zap); background: rgba(10, 10, 13, .94); color: var(--fg);
@@ -630,7 +630,6 @@
     .mobile-nav a:not(.btn) { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-radius: 10px; font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: 1.1rem; letter-spacing: -.02em; }
     .mobile-nav a:not(.btn)::before { content: "//"; font-family: var(--font-mono); font-weight: 700; font-size: .9rem; color: var(--zap); }
     .mobile-nav a:not(.btn):hover, .mobile-nav a:not(.btn):active { background: var(--surface-2); }
-    .mobile-nav .btn { margin: 10px 8px 6px; }
     @media (min-width: 981px) { .mobile-nav { display: none !important; } }
     @media (max-width: 980px) {
       .nav > .btn { display: none; }
@@ -667,7 +666,6 @@
       .assure > div:nth-child(n+3) { border-top: 1.5px solid var(--line); }
       .nav ul { display: none; }
       .sticky-cta { display: flex; }
-      .wa-float { display: none; }
       footer { padding-bottom: 100px; }
     }
     @media (max-width: 720px) {
@@ -728,7 +726,6 @@
       .menu-btn[aria-expanded="true"] i { width: 20px; }
       .mobile-nav { top: 66px; left: 10px; right: 10px; padding: 8px; }
       .mobile-nav a:not(.btn) { padding: 11px 12px; font-size: 1rem; }
-      .mobile-nav .btn { margin: 8px 6px 4px; }
 
       /* hero */
       .hero { padding: 96px 0 32px; }
@@ -891,7 +888,6 @@
     <a href="#demo">Briefing</a>
     <a href="#pacotes">Pacotes</a>
     <a href="#faq">FAQ</a>
-    <a class="btn btn-primary js-wa" href="#">Falar no WhatsApp</a>
   </nav>
 
   <main id="conteudo">
@@ -1001,7 +997,7 @@
 
         <div class="cta-strip reveal">
           <div><strong>Prefere o caminho mais curto?</strong><span>Mande sua ideia hoje e veja a página no ar amanhã.</span></div>
-          <a class="btn btn-primary js-wa" href="#">Chamar no WhatsApp <span class="arrow">→</span></a>
+          <a class="cta-link" href="#demo">Montar meu briefing <span class="arrow">→</span></a>
         </div>
       </div>
     </section>
@@ -1189,7 +1185,7 @@
       <div class="container">
         <div class="cta-strip reveal">
           <div><strong>Quer ver esse painel com a sua ideia?</strong><span>Conte o que você quer testar e eu monto a página.</span></div>
-          <a class="btn btn-primary js-wa" href="#">Começar agora <span class="arrow">→</span></a>
+          <a class="cta-link" href="#demo">Começar o briefing <span class="arrow">→</span></a>
         </div>
       </div>
     </section>
@@ -1418,9 +1414,6 @@
     <a class="btn btn-primary js-wa" href="#">WhatsApp</a>
   </div>
 
-  <a class="wa-float js-wa" href="#" aria-label="Falar no WhatsApp">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6A12 12 0 0 0 12 24c6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.5ZM12 22a10 10 0 0 1-5.1-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A10 10 0 1 1 12 22Zm5.5-7.5c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.7.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.6.7.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3Z"/></svg>
-  </a>
 
   <script>
     // Número fictício: troque por um real, apenas dígitos com DDI + DDD (ex.: 5511912345678).
@@ -1694,7 +1687,7 @@
     /* ---------- Barra fixa de WhatsApp (celular): some quando já há outro botão de contato à vista ---------- */
     (function sticky() {
       const bar = $("#stickyCta"), hero = $(".hero");
-      const zones = [$("#demo"), $("#pacotes"), $(".cta-box"), ...$$(".cta-strip")];
+      const zones = [$("#demo"), $("#pacotes"), $(".cta-box")];
       const active = new Set();
       let pastHero = false;
       const sync = () => bar.classList.toggle("show", pastHero && active.size === 0);

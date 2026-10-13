@@ -43,7 +43,8 @@ Tudo o que a página promete aparece nela de alguma forma: o selo "1 dia", o rel
 - **Horário previsto de entrega** calculado pelo **horário de Brasília** (e não pelo relógio de quem visita), com a regra do corte às 14h, fins de semana e próximo dia útil. A lógica foi testada em vários fusos.
 - Galeria com janela de ampliação (`<dialog>`), que leva ao WhatsApp com o nome do exemplo na mensagem.
 - Brilho que segue o cursor, spotlight nos cards, inclinação 3D no mockup do hero e linha do tempo que se preenche conforme a leitura.
-- No celular, uma barra fixa de WhatsApp e uma faixa que mostra a prévia do briefing ao vivo enquanto a pessoa preenche.
+- Poucos caminhos para o WhatsApp, cada um com um papel: topo (desktop) ou barra fixa (celular), hero, briefing, pacotes e CTA final. As faixas do meio levam ao briefing.
+- No celular, menu compacto e uma faixa que mostra a prévia do briefing ao vivo enquanto a pessoa preenche.
 
 **Acessibilidade**
 - Link para pular ao conteúdo, foco visível por teclado e navegação por setas nas opções do briefing.
