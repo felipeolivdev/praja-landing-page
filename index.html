@@ -13,7 +13,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=JetBrains+Mono:wght@500&family=Sora:wght@600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@600;700;800&family=Unbounded:wght@600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Archivo:wdth,wght@62..125,700..900&family=JetBrains+Mono:wght@500&family=Sora:wght@600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@600;700;800&family=Unbounded:wght@600;800&display=swap" rel="stylesheet" />
 
   <style>
     /* =========================================================
@@ -45,7 +45,7 @@
       --border: var(--line);
       --radius: 16px;
       --max: 1120px;
-      --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+      --font-display: "Archivo", system-ui, sans-serif;
       --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
       --font-mono: "JetBrains Mono", ui-monospace, monospace;
       --snap: cubic-bezier(.2, .9, .3, 1);
@@ -63,7 +63,10 @@
     }
     a { color: inherit; text-decoration: none; }
     h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1; margin: 0; letter-spacing: -0.035em; font-weight: 800; }
-    h2 { font-size: clamp(2.2rem, 5.2vw, 3.8rem); }
+    h2 { font-size: clamp(2rem, 4.6vw, 3.3rem); }
+    /* Archivo na largura expandida: tudo que usa a fonte de título */
+    h1, h2, h3, h4, .logo, .m-title, .cta-strip strong, .sum-row b, .price, .pv-title, .pv-brand, .cutoff-clock, .checks b, .assure b,
+    .oneday b, .stamp-core strong, .kpis b, .type b, .step legend, .sticky-cta b, .dash-head strong, .pv-prod b, .pv-date strong { font-stretch: 112%; font-weight: 800; }
     p { margin: 0; }
     .container { width: min(var(--max), 100% - 40px); margin-inline: auto; }
     section { padding: 110px 0; position: relative; }
@@ -83,6 +86,8 @@
     .hl { font-weight: 700; padding: 0 .1em; }
     .hl::before { inset: 0 -.05em; border-radius: 4px; }
 
+    .cursor-glow { position: fixed; z-index: 30; left: 0; top: 0; width: 560px; height: 560px; margin: -280px 0 0 -280px; pointer-events: none; opacity: 0; transition: opacity .4s;
+      background: radial-gradient(circle, rgba(255, 214, 10, .075), transparent 62%); mix-blend-mode: screen; will-change: transform; }
     .progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; z-index: 60; background: var(--zap); transform-origin: 0 50%; transform: scaleX(0); }
 
     /* =========================================================
@@ -144,7 +149,7 @@
     .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--zap); position: relative; flex-shrink: 0; }
     .dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--zap); animation: ping 1.6s infinite; }
     @keyframes ping { to { transform: scale(3.2); opacity: 0; } }
-    .hero h1 { font-size: clamp(3.1rem, 7.4vw, 6.3rem); line-height: .94; letter-spacing: -.05em; }
+    .hero h1 { font-size: clamp(2.7rem, 6.3vw, 5.3rem); line-height: .96; letter-spacing: -.04em; }
     .hero h1 .line { display: block; overflow: hidden; padding-bottom: .06em; }
     .hero h1 .line span { display: inline-block; transform: translateY(140%); animation: rise .7s var(--snap) forwards; }
     .hero h1 .line:nth-child(2) span { animation-delay: .08s; }
@@ -205,12 +210,6 @@
     .stamp-core strong { font-family: var(--font-display); font-size: 2.7rem; letter-spacing: -.05em; }
     .stamp-core span { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .22em; margin-top: 2px; font-weight: 500; }
 
-    /* ---- régua de 24h ---- */
-    .ruler { border-block: 1.5px solid var(--line); background: var(--bg-2); overflow: hidden; }
-    .ruler-in { display: flex; justify-content: space-between; align-items: flex-end; width: min(var(--max), 100% - 40px); margin-inline: auto; height: 46px; padding-bottom: 6px; font-family: var(--font-mono); font-size: .72rem; font-weight: 500; color: var(--muted);
-      background: repeating-linear-gradient(90deg, rgba(255, 214, 10, .7) 0 1.5px, transparent 1.5px calc(100% / 48)) bottom / 100% 10px no-repeat; }
-    .ruler-in span:last-child { color: var(--zap); }
-
     /* =========================================================
        6. CARDS COMUNS
        ========================================================= */
@@ -218,6 +217,10 @@
       position: relative; border-radius: var(--radius); background: var(--surface); border: 1.5px solid var(--line);
       padding: 30px; transition: transform .2s var(--snap), border-color .2s, background .2s;
     }
+    .spot { isolation: isolate; }
+    .spot::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s;
+      background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 214, 10, .11), transparent 60%); }
+    .spot:hover::before { opacity: 1; }
     .spot:hover { transform: translateY(-4px); border-color: var(--zap); }
     .spot h3 { font-size: 1.4rem; margin-bottom: 10px; }
     .spot p { color: var(--muted); font-size: 1rem; }
@@ -596,8 +599,8 @@
       .input-row { flex-wrap: wrap; } .suggest { padding: 12px 16px; width: 100%; }
     }
     @media (max-width: 560px) {
-      .oneday { font-size: .88rem; padding: 8px 16px 8px 12px; }
-      .oneday b { font-size: 1.05rem; white-space: nowrap; }
+      .oneday { font-size: .8rem; gap: 8px; padding: 8px 14px 8px 12px; }
+      .oneday b { font-size: .95rem; white-space: nowrap; }
       .logo { font-size: 1.25rem; }
       .logo em { display: none; }
       .nav { padding: 0 8px 0 14px; height: 54px; }
@@ -631,6 +634,7 @@
       <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
     </defs>
   </svg>
+  <div class="cursor-glow" aria-hidden="true"></div>
   <div class="progress" aria-hidden="true"></div>
 
   <!-- ===== Header ===== -->
@@ -710,8 +714,6 @@
         </div>
       </div>
     </section>
-
-    <div class="ruler" aria-hidden="true"><div class="ruler-in"><span>00h</span><span>06h</span><span>12h</span><span>18h</span><span>24h</span></div></div>
 
     <!-- ===== Compare ===== -->
     <section id="problema">
@@ -1211,6 +1213,19 @@
 
     /* ---------- Cursor glow + spotlight cards + tilt + magnetic buttons ---------- */
     if (fine) {
+      const glow = $(".cursor-glow");
+      addEventListener("mousemove", (e) => {
+        glow.style.opacity = 1;
+        glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      });
+      document.addEventListener("mouseleave", () => { glow.style.opacity = 0; });
+      $$(".spot").forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const r = card.getBoundingClientRect();
+          card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+          card.style.setProperty("--my", `${e.clientY - r.top}px`);
+        });
+      });
       const stage = $("#stage"), browser = $("#browser");
       stage.addEventListener("mousemove", (e) => {
         const r = stage.getBoundingClientRect();

@@ -15,15 +15,16 @@ Praticar e demonstrar a criação de uma landing page moderna usando apenas HTML
 
 ## Destaques de design
 
-- Identidade escura com gradiente violeta → ciano; tipografia Space Grotesk, Inter e JetBrains Mono
+- Identidade **"velocidade elétrica"**: fundo escuro, amarelo-raio só como destaque, formas inclinadas (como o raio do logotipo) e ícones de traço próprios
+- Tipografia: **Archivo** na largura expandida nos títulos, Inter no texto e JetBrains Mono nos detalhes técnicos
 - Mockup de navegador que "constrói a página" em loop (0h → 24h), com leve efeito 3D ao mover o mouse
-- Linha do tempo guiada pelo scroll, cards com spotlight, botões magnéticos e contadores animados
-- **Briefing ao vivo:** o visitante preenche nome, ideia e prazo, vê a prévia na hora e a mensagem já sai pronta para o WhatsApp
+- Linha do tempo guiada pelo scroll, brilho que segue o cursor, cards com spotlight e botões em paralelogramo
+- **Briefing interativo em 4 passos:** formato (lista de espera, pré-venda, software ou evento), ideia com sugestão de frase, cor e tom de voz, e prazo. A prévia muda ao vivo (computador ou celular), mostra o pacote indicado e o horário previsto, e a mensagem sai pronta para o WhatsApp
 - **Comparação** agência × no-code × PraJá, **horário de corte** e explicação de como cabe tudo em um dia
 - **Galeria** de quatro páginas de exemplo (lista de espera, pré-venda, SaaS e evento), todas fictícias
 - **Painel de resultados** ilustrativo e seção de garantias (código, hospedagem, custos e entrada)
 - Chamadas para ação ao longo da página e barra fixa de WhatsApp no celular
-- Aurora animada, grão sutil, barra de progresso de leitura e animações de entrada
+- Barra de progresso de leitura e animações de entrada
 - Responsivo e respeita `prefers-reduced-motion`
 
 ## Estrutura
