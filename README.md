@@ -8,6 +8,15 @@ A página apresenta o problema (validar ideias leva tempo demais), a solução (
 
 > Marca, preços e telefone são **fictícios**. Substitua-os antes de usar de verdade.
 
+## Destaques de design
+
+- Identidade escura com gradiente violeta → ciano, tipografia Space Grotesk + Inter + JetBrains Mono
+- Mockup de navegador que "constrói a página" em loop (0h → 24h) com leve efeito 3D ao mover o mouse
+- Linha do tempo guiada pelo scroll, cards com spotlight, botões magnéticos e contadores animados
+- **Demo ao vivo:** o visitante digita nome e promessa da startup e vê a prévia na hora; o texto vai pré-preenchido no WhatsApp
+- Aurora animada, grão sutil, barra de progresso de leitura e animações de entrada
+- Responsivo e respeita `prefers-reduced-motion`
+
 ## Estrutura
 
 ```
