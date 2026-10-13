@@ -1,56 +1,89 @@
-# ⚡ PraJá.studio
+<div align="center">
 
-> **⚠️ Protótipo fictício, feito para fins de estudo e didáticos.**
-> A marca **PraJá.studio**, os pacotes, os preços, os prazos, as condições de pagamento e o número de WhatsApp `(00) 00000-0000` são **inventados**. Este projeto não representa um negócio real nem oferece nenhum serviço.
+# PraJá.studio
 
-> **Quer uma página pro seu negócio? É PraJá.**
+**Quer uma página pro seu negócio? É PraJá.**
 
-Landing page (arquivo único em HTML) do estúdio fictício **PraJá.studio**, que entrega páginas em 24 horas para startups que precisam validar ideias rapidamente.
+Landing page de um estúdio fictício que entrega páginas para startups em **um dia**.
+Projeto de estudo feito com HTML, CSS e JavaScript puros, em um único arquivo.
 
-🔗 **Demo:** https://praja-studio.vercel.app
+[**Ver demo ao vivo →**](https://praja-studio.vercel.app)
 
-## Objetivo
+![Prévia da página inicial da PraJá.studio](assets/preview.png)
 
-Praticar e demonstrar a criação de uma landing page moderna usando apenas HTML, CSS e JavaScript puros: identidade visual consistente, animações, interações e responsividade, sem frameworks nem etapa de build.
+</div>
 
-## Destaques de design
+> [!WARNING]
+> **Protótipo fictício, feito para fins de estudo e didáticos.**
+> A marca PraJá.studio, os pacotes, os preços, os prazos, as condições de pagamento, as garantias, os números dos painéis e o telefone de WhatsApp `(00) 00000-0000` são **inventados**. Este projeto não representa um negócio real nem oferece nenhum serviço.
 
-- Identidade **"velocidade elétrica"**: fundo escuro, amarelo-raio só como destaque, formas inclinadas (como o raio do logotipo) e ícones de traço próprios
-- Tipografia: **Archivo** na largura expandida nos títulos, Inter no texto e JetBrains Mono nos detalhes técnicos
-- Mockup de navegador que começa com a página pronta e, de tempos em tempos, "refaz" a construção (0h → 24h), com leve efeito 3D ao mover o mouse
-- Linha do tempo guiada pelo scroll, brilho que segue o cursor, cards com spotlight e botões em paralelogramo
-- **Briefing interativo em 4 passos:** formato (lista de espera, pré-venda, software ou evento), ideia com sugestão de frase, cor e tom de voz, e prazo. A prévia muda ao vivo (computador ou celular), mostra o pacote indicado e o horário previsto, e a mensagem sai pronta para o WhatsApp
-- **Comparação** agência × no-code × PraJá, **horário de corte** e explicação de como cabe tudo em um dia
-- **Galeria** de quatro páginas de exemplo (lista de espera, pré-venda, SaaS e evento), todas fictícias, que podem ser ampliadas em uma janela com botão para pedir algo na mesma linha
-- **Painel de resultados** ilustrativo e seção de garantias (código, hospedagem, custos e entrada)
-- Chamadas para ação ao longo da página e barra fixa de WhatsApp no celular
-- Divisores inclinados entre as seções, barra de progresso de leitura e animações de entrada
-- Horário previsto de entrega calculado pelo **horário de Brasília**, com regra do corte às 14h e fins de semana
-- Acessibilidade: link para pular ao conteúdo, foco visível, navegação por setas nas opções do briefing e estados para leitores de tela
-- Desempenho: as fontes da galeria só são carregadas quando a seção se aproxima
-- Responsivo e respeita `prefers-reduced-motion`
+## Sobre o projeto
 
-## Estrutura
+A ideia era criar uma landing page que **vende velocidade** para startups que precisam validar ideias rapidamente, e que mostra domínio de front-end no próprio processo: identidade visual própria, interações com propósito, acessibilidade e desempenho, sem frameworks e sem etapa de build.
+
+Tudo o que a página promete aparece nela de alguma forma: o selo "1 dia", o relógio no mockup, o horário de corte calculado em tempo real e o briefing que monta a mensagem pronta para o WhatsApp.
+
+## O que tem na página
+
+| Seção | O que faz |
+|---|---|
+| **Hero** | Promessa principal, mockup de navegador que começa pronto e de tempos em tempos "refaz" a página, e CTA para o WhatsApp |
+| **Comparação** | Agência × no-code sozinho × PraJá, em prazo, esforço, preço, copy e design e posse da página |
+| **Processo** | Como cabe tudo em um dia, horário de corte (14h) e linha do tempo guiada pelo scroll |
+| **Exemplos** | Galeria de quatro páginas fictícias (lista de espera, pré-venda, software e evento) com identidades visuais diferentes, que podem ser ampliadas |
+| **Resultados** | Painel ilustrativo de teste de demanda e o que a pessoa leva depois da entrega |
+| **Briefing** | Formulário interativo em quatro passos com prévia ao vivo, pacote indicado e horário previsto de entrega |
+| **Pacotes e garantias** | Três pacotes de preço fechado e as garantias (código, hospedagem, custos e entrada) |
+| **FAQ e CTA final** | Objeções mais comuns e uma última chamada para o WhatsApp |
+
+## Destaques técnicos
+
+**Interação**
+- **Briefing em 4 passos:** formato (lista de espera, pré-venda, software ou evento), ideia com sugestão de frase, cor e tom de voz, e prazo. A prévia muda de layout por formato e pode ser vista em modo computador ou celular. A mensagem do WhatsApp sai montada com as escolhas.
+- **Horário previsto de entrega** calculado pelo **horário de Brasília** (e não pelo relógio de quem visita), com a regra do corte às 14h, fins de semana e próximo dia útil. A lógica foi testada em vários fusos.
+- Galeria com janela de ampliação (`<dialog>`), que leva ao WhatsApp com o nome do exemplo na mensagem.
+- Brilho que segue o cursor, spotlight nos cards, inclinação 3D no mockup do hero e linha do tempo que se preenche conforme a leitura.
+- No celular, uma barra fixa de WhatsApp e uma faixa que mostra a prévia do briefing ao vivo enquanto a pessoa preenche.
+
+**Acessibilidade**
+- Link para pular ao conteúdo, foco visível por teclado e navegação por setas nas opções do briefing.
+- Estados `aria-checked` e `aria-pressed` nas escolhas, e `prefers-reduced-motion` respeitado.
+
+**Desempenho**
+- Sem bibliotecas de JavaScript nem etapa de build: a página inteira é um único arquivo HTML.
+- As fontes da galeria só são carregadas quando a seção se aproxima da tela.
+- Layout responsivo, testado de desktop a celular.
+
+## Identidade visual
+
+O conceito é **velocidade elétrica**: tudo na página deriva do raio do logotipo.
+
+| Elemento | Decisão |
+|---|---|
+| **Cores** | Fundo escuro (`#0a0a0d`), texto creme (`#f6f4ec`) e **amarelo-raio** (`#ffd60a`) usado só como destaque |
+| **Formas** | Paralelogramos inclinados em botões, grifos, selo e marcadores, na mesma inclinação do raio |
+| **Ícones** | Conjunto próprio de ícones de traço (SVG), com o mesmo desenho |
+| **Tipografia** | **Archivo** na largura expandida nos títulos, **Inter** no texto e **JetBrains Mono** nos detalhes técnicos |
+| **Detalhes** | Filete amarelo no topo dos blocos-chave, divisores inclinados entre as seções e movimento seco e rápido |
+
+A galeria é de propósito um contraponto: cada exemplo (Grana, Torra, Fluxo e Sprint Zero) tem cores, fontes e layout próprios, para mostrar que dá para fazer qualquer coisa.
+
+## Estrutura do projeto
 
 ```
 .
-├── index.html   # Página completa (HTML + CSS + JS inline)
+├── index.html        # Página completa (HTML + CSS + JS inline)
 ├── assets/
-│   ├── og.html  # Fonte da imagem de compartilhamento
-│   └── og.png   # Imagem social (1200x630) usada nas metatags Open Graph
-├── README.md
+│   ├── og.html       # Fonte da imagem de compartilhamento
+│   ├── og.png        # Imagem social (1200x630) das metatags Open Graph
+│   └── preview.png   # Captura usada neste README
 ├── LICENSE
-└── .gitignore
+└── README.md
 ```
-
-## Tecnologias
-
-- HTML5 e CSS3 (sem frameworks, sem build)
-- JavaScript puro, para animações, interações e para montar os links do WhatsApp
 
 ## Rodando localmente
 
-Não há dependências. Abra o `index.html` no navegador ou sirva a pasta:
+Não há dependências nem etapa de build. Abra o `index.html` no navegador ou sirva a pasta:
 
 ```bash
 npx serve .
@@ -61,14 +94,16 @@ npx serve .
 | O que mudar | Onde |
 |---|---|
 | Número do WhatsApp | constante `WHATSAPP_NUMBER` no final do `index.html` (DDI + DDD + número, só dígitos) |
-| Telefone exibido | seção final (`.phone`) do `index.html` |
-| Nome da marca | `<title>`, logo no header e rodapé |
+| Telefone exibido | `.phone`, na seção final |
+| Nome e logotipo | `<title>`, metatags, SVG do logotipo no header e `assets/og.html` |
+| Cores | variáveis CSS em `:root`, no início do `<style>` |
 | Preços e pacotes | seção `#pacotes` |
-| Cores | variáveis CSS em `:root` |
+| Horário de corte | função `eta()` no script do briefing, o texto do card de corte e o FAQ |
+| Imagem de compartilhamento | edite `assets/og.html` e capture a tela em 1200x630 |
 
 ## Deploy
 
-O projeto é estático e é publicado na [Vercel](https://vercel.com) a partir deste repositório. Cada push na branch `main` gera um novo deploy automaticamente.
+O site é estático e é publicado na [Vercel](https://vercel.com) a partir deste repositório. Cada push na branch `main` gera um novo deploy automaticamente.
 
 ## Licença
 
