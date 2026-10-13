@@ -18,7 +18,11 @@ Praticar e demonstrar a criação de uma landing page moderna usando apenas HTML
 - Identidade escura com gradiente violeta → ciano; tipografia Space Grotesk, Inter e JetBrains Mono
 - Mockup de navegador que "constrói a página" em loop (0h → 24h), com leve efeito 3D ao mover o mouse
 - Linha do tempo guiada pelo scroll, cards com spotlight, botões magnéticos e contadores animados
-- **Demo ao vivo:** o visitante digita nome e promessa da startup e vê a prévia na hora; o texto vai pré-preenchido no link do WhatsApp
+- **Briefing ao vivo:** o visitante preenche nome, ideia e prazo, vê a prévia na hora e a mensagem já sai pronta para o WhatsApp
+- **Comparação** agência × no-code × PraJá, **horário de corte** e explicação de como cabe tudo em um dia
+- **Galeria** de quatro páginas de exemplo (lista de espera, pré-venda, SaaS e evento), todas fictícias
+- **Painel de resultados** ilustrativo e seção de garantias (código, hospedagem, custos e entrada)
+- Chamadas para ação ao longo da página e barra fixa de WhatsApp no celular
 - Aurora animada, grão sutil, barra de progresso de leitura e animações de entrada
 - Responsivo e respeita `prefers-reduced-motion`
 
