@@ -41,6 +41,7 @@ Tudo o que a página promete aparece nela de alguma forma: o selo "1 dia", o rel
 **Interação**
 - **Briefing em 4 passos:** formato (lista de espera, pré-venda, software ou evento), ideia com sugestão de frase, cor e tom de voz, e prazo. A prévia muda de layout por formato e pode ser vista em modo computador ou celular. A mensagem do WhatsApp sai montada com as escolhas.
 - **Horário previsto de entrega** calculado pelo **horário de Brasília** (e não pelo relógio de quem visita), com a regra do corte às 14h, fins de semana e próximo dia útil. A lógica foi testada em vários fusos.
+- **Painel de resultados animado:** as barras crescem em sequência, os números contam até o valor final, e depois o painel simula novas visitas, cliques e cadastros ao vivo (dados ilustrativos). Cada barra mostra um detalhe ao passar o mouse ou receber foco.
 - Galeria com janela de ampliação (`<dialog>`), que leva ao WhatsApp com o nome do exemplo na mensagem.
 - Brilho que segue o cursor, spotlight nos cards, inclinação 3D no mockup do hero e linha do tempo que se preenche conforme a leitura.
 - Poucos caminhos para o WhatsApp, cada um com um papel: topo (desktop) ou barra fixa (celular), hero, briefing, pacotes e CTA final. As faixas do meio levam ao briefing.
