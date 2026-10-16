@@ -734,6 +734,98 @@
     }
 
     /* =========================================================
+       15c. BRIEFING: abas, teste da promessa, briefing escrito, galeria que se monta
+       ========================================================= */
+    @property --pa { syntax: "<color>"; inherits: true; initial-value: #ffd60a; }
+    @property --pb { syntax: "<color>"; inherits: true; initial-value: #ff9f0a; }
+    .preview { transition: max-width .45s var(--snap), --pa .5s ease, --pb .5s ease; }
+    .brief { transition: --pa .5s ease; }
+
+    .mode-switch { position: relative; display: inline-flex; max-width: 100%; padding: 4px; margin-bottom: 28px; border: 1.5px solid var(--line-strong); border-radius: 14px; background: var(--surface); }
+    .mode-switch button { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border: 0; border-radius: 10px; background: transparent; color: var(--muted); font: inherit; font-weight: 700; font-size: .95rem; cursor: pointer; transition: color .25s; }
+    .mode-switch button:hover { color: var(--fg); }
+    .mode-switch button[aria-selected="true"] { color: var(--on-zap); }
+    .mode-pill { position: absolute; z-index: 0; top: 4px; bottom: 4px; left: 0; width: 0; border-radius: 10px; background: var(--zap); transition: transform .38s var(--snap), width .38s var(--snap); }
+    .panel-in { animation: panelIn .45s var(--snap) both; }
+    @keyframes panelIn { from { opacity: 0; translate: 0 16px; } }
+
+    .field label small { font-family: var(--font-body); text-transform: none; letter-spacing: 0; font-weight: 400; opacity: .85; }
+    .pv-title, .pv-sub, .pv-brand > span, .pv-cta, .pv-mail b, .sum-row b, .sum-row span { will-change: opacity, transform; }
+
+    .test-card { padding: 18px 20px 20px; border-radius: 16px; background: var(--surface); border: 1.5px solid var(--line); }
+    .tc-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+    .tc-head strong { font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: 1.05rem; letter-spacing: -.02em; }
+    .tc-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+    .tc-col { min-width: 0; padding: 12px; border-radius: 12px; background: var(--bg); border: 1.5px solid var(--line); transition: border-color .3s, box-shadow .3s, opacity .3s; }
+    .tc-col.win { border-color: var(--zap); box-shadow: 0 0 0 3px rgba(255, 214, 10, .12); }
+    .tc-col.idle { opacity: .55; }
+    .tc-top { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+    .tc-letter { align-self: center; width: 22px; height: 22px; border-radius: 6px; background: var(--zap); color: var(--on-zap); display: grid; place-items: center; font-size: .8rem; transform: skewX(var(--skew)); }
+    .tc-score { font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: 1.9rem; letter-spacing: -.04em; line-height: 1; }
+    .tc-top small { color: var(--muted); font-size: .75rem; }
+    .tc-label { margin-left: auto; font-style: normal; font-family: var(--font-mono); font-size: .72rem; color: var(--zap); text-align: right; }
+    .tc-bar { height: 6px; border-radius: 6px; background: var(--line); margin: 10px 0; overflow: hidden; }
+    .tc-bar i { display: block; height: 100%; width: 0; border-radius: 6px; background: var(--zap); transition: width .6s var(--snap); }
+    .tc-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
+    .tc-checks li { display: flex; align-items: center; gap: 7px; font-size: .78rem; color: var(--muted); transition: color .25s; min-width: 0; }
+    .tc-checks li b { flex-shrink: 0; width: 16px; height: 16px; border-radius: 5px; display: grid; place-items: center; font-size: .62rem; background: var(--line); color: var(--muted); transition: background .25s, color .25s; }
+    .tc-checks li.good { color: var(--fg); } .tc-checks li.good b { background: var(--zap); color: var(--on-zap); }
+    .tc-checks li.bad b { background: rgba(255, 107, 129, .2); color: #ff8196; }
+    .tc-checks li.flip b { animation: popb .4s var(--snap); }
+    @keyframes popb { 40% { transform: scale(1.4); } }
+    .tc-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    .tc-verdict { font-weight: 700; font-size: .88rem; }
+    .tc-show { display: flex; padding: 3px; border: 1.5px solid var(--line-strong); border-radius: 10px; }
+    .tc-show button { padding: 5px 12px; border: 0; border-radius: 7px; background: transparent; color: var(--fg); font: inherit; font-weight: 700; font-size: .8rem; cursor: pointer; transition: background .15s, color .15s; }
+    .tc-show button.sel { background: var(--zap); color: var(--on-zap); }
+    .tc-show button:disabled { opacity: .4; cursor: not-allowed; }
+    .tc-tip { margin-top: 10px; font-size: .82rem; color: var(--muted); line-height: 1.45; overflow-wrap: anywhere; }
+
+    .write { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 28px; align-items: start; }
+    .write-main { display: grid; gap: 14px; min-width: 0; grid-template-columns: minmax(0, 1fr); }
+    .wr-label { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+    #wrText { width: 100%; min-height: 270px; padding: 16px 18px; border-radius: 14px; border: 1.5px solid var(--line-strong); background: var(--bg); color: var(--fg); font: inherit; font-size: 1rem; line-height: 1.6; resize: vertical; outline: none; transition: border-color .15s, box-shadow .15s; }
+    #wrText:focus { border-color: var(--zap); box-shadow: 0 0 0 3px rgba(255, 214, 10, .18); }
+    #wrText::placeholder { color: #8c8c96; }
+    .wr-tools { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; justify-content: space-between; }
+    .wr-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .wr-chips button { padding: 7px 12px; border-radius: 8px; border: 1.5px dashed var(--line-strong); background: transparent; color: var(--fg); font: inherit; font-size: .82rem; font-weight: 600; cursor: pointer; transition: border-color .15s, color .15s, background .15s; }
+    .wr-chips button:hover { border-color: var(--zap); color: var(--zap); background: var(--zap-soft); }
+    .wr-actions { display: flex; gap: 14px; align-items: center; }
+    .wr-actions .btn { padding: 10px 20px; font-size: .88rem; }
+    .wr-clear { background: none; border: 0; padding: 6px; color: var(--muted); font: inherit; font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .wr-clear:hover { color: var(--fg); }
+    .write-side { display: grid; gap: 14px; min-width: 0; grid-template-columns: minmax(0, 1fr); }
+    .wr-guide { padding: 18px 20px; border-radius: 16px; background: var(--surface); border: 1.5px solid var(--line); }
+    .wr-guide h3 { font-size: 1.1rem; margin-bottom: 12px; }
+    .wr-guide ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; counter-reset: g; }
+    .wr-guide li { position: relative; padding-left: 36px; font-size: .9rem; color: var(--muted); counter-increment: g; line-height: 1.5; }
+    .wr-guide li::before { content: counter(g); position: absolute; left: 0; top: 0; width: 24px; height: 24px; border-radius: 7px; background: var(--zap); color: var(--on-zap); display: grid; place-items: center; font-weight: 800; font-size: .8rem; transform: skewX(var(--skew)); }
+    .wr-guide li b { color: var(--fg); }
+    .wa-bubble p.is-empty { color: var(--muted); }
+    .btn[aria-disabled="true"] { opacity: .45; cursor: not-allowed; }
+    .btn[aria-disabled="true"]:hover { transform: none; }
+    .shake { animation: shake .4s; }
+    @keyframes shake { 20%, 60% { translate: -5px 0; } 40%, 80% { translate: 5px 0; } }
+
+    /* galeria: cada exemplo se monta, peça por peça, quando entra na tela */
+    .ex:not(.built) .ex-frame [data-bk] { opacity: 0; }
+    .built .ex-frame [data-bk] { animation: bk .6s var(--snap) both; animation-delay: calc(var(--k, 0) * 55ms + 100ms); }
+    @keyframes bk { from { opacity: 0; translate: 0 12px; scale: .96; } }
+
+    @media (max-width: 980px) {
+      .write { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    }
+    @media (max-width: 560px) {
+      .mode-switch { display: flex; width: 100%; }
+      .mode-switch button { flex: 1; justify-content: center; padding: 11px 8px; font-size: .86rem; gap: 6px; }
+      .tc-grid { grid-template-columns: minmax(0, 1fr); }
+      .tc-checks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #wrText { min-height: 220px; }
+      .wr-actions { width: 100%; justify-content: space-between; }
+    }
+
+    /* =========================================================
        16. MOBILE COMPACTO (celulares): tudo um pouco menor e mais arejado
        Fica no fim da folha de estilo para vencer as regras anteriores.
        ========================================================= */
@@ -890,6 +982,7 @@
       <symbol id="i-modules" viewBox="0 0 24 24"><rect x="3" y="3" width="7.500" height="7.500" rx="1.500"/><rect x="13.500" y="3" width="7.500" height="7.500" rx="1.500"/><rect x="3" y="13.500" width="7.500" height="7.500" rx="1.500"/><path d="M17.200 13.500v7M13.700 17h7"/></symbol>
       <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M4 7h16v3a2 2 0 0 0 0 4v3H4v-3a2 2 0 0 0 0-4V7Z"/><path d="M14 7v10"/></symbol>
       <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="m8 15 3-4 3 2 4-6"/></symbol>
+      <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.800 2.800 0 0 0-4-4L4 16v4Z"/><path d="m13.500 6.500 4 4"/></symbol>
       <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
     </defs>
   </svg>
@@ -1229,9 +1322,16 @@
         <div class="section-head reveal">
           <span class="eyebrow">Briefing em 1 minuto</span>
           <h2>Monte sua página em <span class="grad">quatro passos</span>.</h2>
-          <p>Escolha o formato, conte a ideia e veja a prévia mudar na hora. No final você já sabe o pacote indicado e quando a página entra no ar.</p>
+          <p>Teste a ideia ao vivo, com nota de clareza e comparação entre duas frases, ou escreva o briefing do seu jeito. Nos dois casos a mensagem já sai pronta para o WhatsApp.</p>
         </div>
 
+        <div class="mode-switch" role="tablist" aria-label="Como você quer montar o briefing">
+          <i class="mode-pill" aria-hidden="true"></i>
+          <button type="button" role="tab" id="tabLive" data-mode="live" aria-selected="true" aria-controls="modeLive"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Teste ao vivo</button>
+          <button type="button" role="tab" id="tabWrite" data-mode="write" aria-selected="false" aria-controls="modeWrite" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg> Escrever meu briefing</button>
+        </div>
+
+        <div id="modeLive" role="tabpanel" aria-labelledby="tabLive">
         <div class="brief">
           <div class="pv-mini" aria-hidden="true"><i></i><b id="pmBrand">Sua Startup</b><span id="pmTitle">Sua grande ideia começa aqui</span><em>● ao vivo</em></div>
           <div class="brief-form reveal">
@@ -1253,6 +1353,13 @@
                 <div class="input-row">
                   <input id="inTag" maxlength="60" placeholder="Ex.: Resolva isso em um clique" autocomplete="off" />
                   <button type="button" class="suggest" id="suggest" title="Sugerir uma frase"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Sugerir</button>
+                </div>
+              </div>
+              <div class="field">
+                <label for="inTagB">Variação B <small>(opcional, para comparar duas frases)</small></label>
+                <div class="input-row">
+                  <input id="inTagB" maxlength="60" placeholder="Ex.: Entre na fila e teste antes de todo mundo" autocomplete="off" />
+                  <button type="button" class="suggest" id="suggestB" title="Gerar uma variação B"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Gerar B</button>
                 </div>
               </div>
             </fieldset>
@@ -1317,6 +1424,27 @@
               </div>
             </div>
 
+            <div class="test-card" id="testCard">
+              <div class="tc-head"><strong>Teste da promessa</strong><span class="pill">heurística simples</span></div>
+              <div class="tc-grid">
+                <div class="tc-col" data-v="A">
+                  <div class="tc-top"><b class="tc-letter">A</b><span class="tc-score" id="scoreA">0</span><small>/100</small><em class="tc-label" id="labelA"></em></div>
+                  <div class="tc-bar"><i id="barA"></i></div>
+                  <ul class="tc-checks" id="checksA"></ul>
+                </div>
+                <div class="tc-col" data-v="B">
+                  <div class="tc-top"><b class="tc-letter">B</b><span class="tc-score" id="scoreB">0</span><small>/100</small><em class="tc-label" id="labelB"></em></div>
+                  <div class="tc-bar"><i id="barB"></i></div>
+                  <ul class="tc-checks" id="checksB"></ul>
+                </div>
+              </div>
+              <div class="tc-foot">
+                <span class="tc-verdict" id="tcVerdict" aria-live="polite"></span>
+                <div class="tc-show" id="tcShow" role="group" aria-label="Qual frase mostrar na prévia"><button type="button" class="sel" data-v="A">Ver A</button><button type="button" data-v="B">Ver B</button></div>
+              </div>
+              <p class="tc-tip" id="tcTip"></p>
+            </div>
+
             <div class="summary">
               <div class="sum-row"><small>Pacote indicado</small><b id="sumPlan">Validação</b><span id="sumPlanWhy"></span></div>
               <div class="sum-row"><small>No ar até</small><b id="sumEta">amanhã</b><span id="sumEtaWhy"></span></div>
@@ -1325,6 +1453,45 @@
             <div class="wa-bubble" aria-live="polite"><small>Mensagem que será enviada</small><p id="waMsg"></p></div>
             <a class="btn btn-primary js-wa" href="#" id="demoCta">Enviar briefing no WhatsApp <span class="arrow">→</span></a>
             <p class="demo-note">A prévia é só uma amostra. A página final é desenhada sob medida para você.</p>
+          </div>
+        </div>
+        </div>
+
+        <div id="modeWrite" role="tabpanel" aria-labelledby="tabWrite" hidden>
+          <div class="write">
+            <div class="write-main">
+              <label class="wr-label" for="wrText"><span>Seu briefing</span><span id="wrCount">0/1200</span></label>
+              <textarea id="wrText" rows="11" maxlength="1200" placeholder="Ex.:&#10;Somos a Grana, um app de finanças pessoais para quem mora sozinho.&#10;Quero testar se as pessoas deixam o e-mail para entrar na fila.&#10;Público: 20 a 30 anos, que hoje controlam tudo em planilha.&#10;Promessa: organizar as contas do mês sem planilha.&#10;Tom: direto e leve. Cores: verde-escuro e lima.&#10;Prazo: preciso para amanhã."></textarea>
+              <div class="wr-tools">
+                <div class="wr-chips" id="wrChips" role="group" aria-label="Inserir um tópico no texto">
+                  <button type="button" data-ins="Quem somos: ">+ Quem somos</button>
+                  <button type="button" data-ins="Quero testar: ">+ O que testar</button>
+                  <button type="button" data-ins="Público: ">+ Público</button>
+                  <button type="button" data-ins="Tom e cores: ">+ Tom e cores</button>
+                  <button type="button" data-ins="Prazo: ">+ Prazo</button>
+                </div>
+                <div class="wr-actions">
+                  <button type="button" class="btn btn-ghost" id="wrExample">Usar exemplo</button>
+                  <button type="button" class="wr-clear" id="wrClear">Limpar</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="write-side">
+              <div class="wr-guide">
+                <h3>Como escrever</h3>
+                <ol>
+                  <li><b>Quem é você:</b> o nome da startup e o que ela faz, em uma frase.</li>
+                  <li><b>O que quer testar:</b> e-mails na lista, pré-venda, inscrições…</li>
+                  <li><b>Para quem:</b> o público e o problema que ele tem hoje.</li>
+                  <li><b>Prazo e estilo:</b> quando precisa e como quer que a página pareça.</li>
+                </ol>
+              </div>
+              <div class="sum-row"><small>No ar até</small><b id="wrEta">amanhã</b><span id="wrEtaWhy"></span></div>
+              <div class="wa-bubble" aria-live="polite"><small>Mensagem que será enviada</small><p id="wrMsg"></p></div>
+              <a class="btn btn-primary js-wa" href="#" id="wrCta" aria-disabled="true">Enviar briefing no WhatsApp <span class="arrow">→</span></a>
+              <p class="demo-note" id="wrHint">Escreva pelo menos 20 caracteres para enviar.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1571,6 +1738,22 @@
       }, { rootMargin: "900px 0px" }).observe(ex);
     })();
 
+    /* ---------- Galeria: cada exemplo se "monta" quando entra na tela ---------- */
+    (function galleryBuild() {
+      $$(".ex-frame").forEach((frame) => {
+        let k = 0;
+        const parts = [...$$(".ex-bar > *", frame), ...$$(".ex-site *", frame)]
+          .filter((el) => !(el.parentElement && el.parentElement.closest("svg")));   // o SVG entra inteiro, sem as peças internas
+        parts.forEach((el) => { el.setAttribute("data-bk", ""); el.style.setProperty("--k", Math.min(k++, 26)); });
+      });
+      const cards = $$(".ex");
+      if (reduced || !("IntersectionObserver" in window)) { cards.forEach((c) => c.classList.add("built")); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("built"); io.unobserve(e.target); } });
+      }, { threshold: .35 });
+      cards.forEach((c) => io.observe(c));
+    })();
+
     /* ---------- Galeria: ampliar exemplo ---------- */
     (function gallery() {
       const dlg = $("#exModal");
@@ -1578,6 +1761,7 @@
       const stage = $("#exStage"), title = $("#exTitle"), desc = $("#exDesc"), kind = $("#exKind"), cta = $("#exCta");
       function open(card) {
         stage.replaceChildren($(".ex-frame", card).cloneNode(true));
+        stage.classList.remove("built"); void stage.offsetWidth; stage.classList.add("built");   // a montagem recomeça na janela ampliada
         title.textContent = $("h3", card).textContent;
         desc.textContent = $(":scope > p", card).textContent;
         kind.textContent = $(".pill", card).textContent;
@@ -1680,7 +1864,7 @@
       }, { threshold: .3 }).observe(dash);
     })();
 
-    /* ---------- Briefing interativo ---------- */
+    /* ---------- Briefing: teste ao vivo (nota de clareza, A/B, transições) e briefing escrito ---------- */
     (function briefing() {
       const TYPES = {
         wait:  { label: "Lista de espera", plan: "Validação",  why: "Inclui captação de e-mails e SEO para a fila crescer.",
@@ -1701,14 +1885,125 @@
                  tags: ["{n}: uma noite para virar a chave.", "Participe de {n} e leve ideias para aplicar amanhã.", "{n}: vagas limitadas, conteúdo de verdade."] }
       };
       const TONES = { direct: "Direto", friendly: "Amigável", serious: "Sério" };
+      const EXAMPLE = [
+        "Somos a Grana, um app de finanças pessoais para quem mora sozinho.",
+        "Quero testar se as pessoas deixam o e-mail para entrar na fila.",
+        "Público: 20 a 30 anos, que hoje controlam tudo em planilha.",
+        "Promessa: organizar as contas do mês sem planilha.",
+        "Tom: direto e leve. Cores: verde-escuro e lima.",
+        "Prazo: preciso para amanhã."
+      ].join("\n");
 
-      const st = { type: "wait", tone: "direct", color: { a: "#ffd60a", b: "#ff9f0a", name: "Amarelo" }, tagIdx: 0 };
-      const inName = $("#inName"), inTag = $("#inTag"), inWhen = $("#inWhen"), pv = $("#preview");
+      const st = { type: "wait", tone: "direct", color: { a: "#ffd60a", b: "#ff9f0a", name: "Amarelo" }, tagIdx: 0, tagIdxB: 1, show: "A" };
+      const motion = !reduced;
+      const inName = $("#inName"), inTag = $("#inTag"), inTagB = $("#inTagB"), inWhen = $("#inWhen"), pv = $("#preview");
       const brand = $("#pvBrand"), title = $("#pvTitle"), sub = $("#pvSub"), url = $("#pvUrl");
-      const cta = $("#demoCta"), msg = $("#waMsg"), pvCta = $("#pvCta"), pvMail = $("#pvCtaMail");
+      const cta = $("#demoCta"), msg = $("#waMsg"), pvCta = $("#pvCta"), pvMail = $("#pvCtaMail"), pvBody = $(".pv-body", pv);
       const brief = $(".brief"), pmBrand = $("#pmBrand"), pmTitle = $("#pmTitle");
       const sumPlan = $("#sumPlan"), sumPlanWhy = $("#sumPlanWhy"), sumEta = $("#sumEta"), sumEtaWhy = $("#sumEtaWhy");
 
+      /* ---- transições ---- */
+      const EASE = "cubic-bezier(.2,.9,.3,1)";
+      function flash(el) {                       // enquanto a pessoa digita: um brilho rápido, sem refazer o texto
+        if (motion) el.animate([{ textShadow: "0 0 22px var(--pa)" }, { textShadow: "0 0 0 transparent" }], { duration: 520, easing: "ease-out" });
+      }
+      function swap(el, next, how) {             // troca de texto: sai para cima, entra por baixo
+        if (el.textContent === next) return;
+        el.getAnimations().forEach((a) => a.cancel());
+        el.__tok = (el.__tok || 0) + 1;
+        const tok = el.__tok;
+        if (!motion || how === "type") { el.textContent = next; flash(el); return; }
+        const out = el.animate([{ opacity: 1, transform: "translateY(0)", filter: "blur(0)" }, { opacity: 0, transform: "translateY(-8px)", filter: "blur(3px)" }], { duration: 130, easing: "ease-in", fill: "forwards" });
+        out.onfinish = () => {
+          if (el.__tok !== tok) return;
+          out.cancel(); el.textContent = next;
+          el.animate([{ opacity: 0, transform: "translateY(8px)", filter: "blur(3px)" }, { opacity: 1, transform: "translateY(0)", filter: "blur(0)" }], { duration: 280, easing: EASE });
+        };
+      }
+      function buildIn(root) {                   // ao trocar o formato, os blocos da prévia entram em sequência
+        if (!motion) return;
+        [...root.children].filter((c) => !c.hidden).forEach((c, i) => {
+          c.animate([{ opacity: 0, transform: "translateY(14px) scale(.97)" }, { opacity: 1, transform: "none" }], { duration: 440, delay: i * 70, easing: EASE, fill: "backwards" });
+        });
+      }
+      function tween(el, to) {                   // números que contam até o valor novo
+        const from = el.__v ?? 0; el.__v = to;
+        cancelAnimationFrame(el.__raf);
+        if (!motion || from === to) { el.textContent = to; return; }
+        const t0 = performance.now();
+        (function frame(now) {
+          const p = Math.min((now - t0) / 550, 1);
+          el.textContent = Math.round(from + (to - from) * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) el.__raf = requestAnimationFrame(frame);
+        })(t0);
+      }
+
+      /* ---- nota de clareza da promessa (heurística simples) ---- */
+      const norm = (t) => t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      const BEN = /\b(sem|mais|menos|rapid\w*|facil\w*|facilit\w*|economiz\w*|ganh\w*|control\w*|garant\w*|seja|descubra|aprend\w*|resolv\w*|organiz\w*|vend\w*|encontr\w*|receb\w*|cri\w*|simplific\w*|automatiz\w*|evit\w*|poup\w*|comec\w*|valid\w*|chega|pare|pronta?|use|tenha|faca)\b/;
+      const NUM = /(\d|\b(dia|dias|hora|horas|minuto|minutos|segundo|segundos|semana|semanas|mes|agora|hoje|amanha|ja|clique|cliques|passo|passos)\b)/;
+      const JARGON = /(sinergia|disruptiv\w*|revolucion\w*|inovador\w*|inovacao|ecossistema|escalavel|plataforma|solucao|solucoes|de ponta|lider de mercado|next level|\b360\b|holistic\w*|alavanc\w*)/;
+      const LABELS = ["Tamanho", "Benefício", "Número ou prazo", "Sem jargão", "Fácil de ler"];
+      const verdictOf = (s) => (s >= 80 ? "Forte" : s >= 60 ? "Boa" : s >= 40 ? "Regular" : "Fraca");
+      function analyze(raw) {
+        const t = raw.trim();
+        if (!t) return null;
+        const n = norm(t), words = t.split(/\s+/).filter(Boolean);
+        const longest = Math.max(...words.map((w) => w.replace(/[^\p{L}\p{N}]/gu, "").length));
+        const letters = t.replace(/[^\p{L}]/gu, ""), upper = letters.replace(/[^\p{Lu}]/gu, "");
+        const checks = [
+          { ok: words.length >= 3 && words.length <= 10, tip: words.length < 3 ? "Use de 3 a 10 palavras: dá para ler num relance." : "Encurte: frases com mais de 10 palavras perdem o leitor." },
+          { ok: BEN.test(n), tip: "Mostre o que a pessoa ganha (ex.: “sem planilha”, “em 1 clique”, “economize tempo”)." },
+          { ok: NUM.test(n), tip: "Um número ou prazo deixa a promessa concreta (ex.: “em 24h”, “3 passos”)." },
+          { ok: !JARGON.test(n), tip: "Troque o jargão por palavras do dia a dia." },
+          { ok: longest <= 13 && (!letters || upper.length / letters.length < .5) && !/[!?]{2,}/.test(t), tip: "Prefira palavras curtas, sem CAIXA ALTA e sem excesso de pontuação." }
+        ];
+        return { score: checks.filter((c) => c.ok).length * 20, checks };
+      }
+      const V = {};
+      ["A", "B"].forEach((v) => {
+        const list = $("#checks" + v);
+        list.innerHTML = LABELS.map((l) => `<li><b>·</b><span>${l}</span></li>`).join("");
+        V[v] = { col: $('.tc-col[data-v="' + v + '"]'), score: $("#score" + v), bar: $("#bar" + v), label: $("#label" + v), items: $$("li", list), res: null };
+      });
+      const tcVerdict = $("#tcVerdict"), tcTip = $("#tcTip"), tcShow = $("#tcShow"), tcBtns = $$("button", tcShow);
+      function renderVariant(v, text) {
+        const e = V[v], r = analyze(text);
+        e.res = r;
+        e.col.classList.toggle("idle", !r);
+        tween(e.score, r ? r.score : 0);
+        e.bar.style.width = (r ? r.score : 0) + "%";
+        e.label.textContent = r ? verdictOf(r.score) : (v === "A" ? "escreva a promessa" : "gere ou escreva a B");
+        e.items.forEach((li, i) => {
+          const was = li.className, c = r && r.checks[i];
+          li.className = !r ? "" : c.ok ? "good" : "bad";
+          li.firstChild.textContent = !r ? "·" : c.ok ? "✓" : "✕";
+          li.title = c && !c.ok ? c.tip : "";
+          if (r && was !== li.className && was !== "") { li.classList.add("flip"); }
+        });
+      }
+      function renderTest() {
+        renderVariant("A", inTag.value);
+        renderVariant("B", inTagB.value);
+        const a = V.A.res, b = V.B.res;
+        V.A.col.classList.remove("win"); V.B.col.classList.remove("win");
+        let verdict;
+        if (!a && !b) verdict = "Escreva sua promessa para ver a nota.";
+        else if (a && !b) verdict = `Nota da A: ${a.score}. Gere uma B para comparar.`;
+        else if (!a && b) verdict = `Nota da B: ${b.score}. Escreva a A para comparar.`;
+        else {
+          const d = a.score - b.score;
+          if (Math.abs(d) < 10) verdict = "Empate técnico: teste as duas.";
+          else { const w = d > 0 ? "A" : "B"; verdict = `${w} vence por ${Math.abs(d)} pontos.`; V[w].col.classList.add("win"); }
+        }
+        swap(tcVerdict, verdict, "type");
+        if (st.show === "B" && !b) st.show = "A";
+        tcBtns.forEach((x) => { const on = x.dataset.v === st.show; x.classList.toggle("sel", on); x.setAttribute("aria-pressed", String(on)); if (x.dataset.v === "B") x.disabled = !b; });
+        const cur = st.show === "B" ? b : a, bad = cur && cur.checks.find((c) => !c.ok);
+        swap(tcTip, !cur ? "Dica: frases curtas, com benefício e um número ou prazo, costumam funcionar melhor." : bad ? "Dica: " + bad.tip : "Boa! Gere uma variação B para ver se dá para ir ainda além.", "type");
+      }
+
+      /* ---- previsão de entrega ---- */
       const pad = (n) => String(n).padStart(2, "0");
       /* o horário de corte vale em Brasília, não no relógio de quem visita */
       const toBRT = (d) => new Date(d.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
@@ -1734,38 +2029,44 @@
         return { text: `${dayLabel(end, now)} às ${pad(end.getHours())}:00`, why: "Depois das 15h (ou no fim de semana), a contagem começa às 9h do próximo dia útil, horário de Brasília." };
       }
 
-      function update() {
+      /* ---- prévia + mensagem (src diz o que mudou, para escolher a transição) ---- */
+      function update(src) {
         const T = TYPES[st.type];
-        const name = inName.value.trim(), tag = inTag.value.trim(), when = inWhen.value;
-        brand.textContent = name || "Sua Startup";
-        title.textContent = tag || "Sua grande ideia começa aqui";
-        sub.textContent = T.sub[st.tone];
+        const name = inName.value.trim(), tagA = inTag.value.trim(), tagB = inTagB.value.trim(), when = inWhen.value;
+        const shown = st.show === "B" && tagB ? tagB : tagA;
+        const typing = src === "name" || src === "tag" || src === "tagB";
+        swap(brand, name || "Sua Startup", "type");
+        swap(title, shown || "Sua grande ideia começa aqui", typing ? "type" : "morph");
+        swap(sub, T.sub[st.tone], "morph");
         const slug = name.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, "");
         url.textContent = (slug || "suastartup") + ".com";
-        pvCta.textContent = T.cta[st.tone]; pvMail.textContent = T.cta[st.tone];
+        swap(pvCta, T.cta[st.tone], "morph"); swap(pvMail, T.cta[st.tone], "morph");
         $$("[data-for]", pv).forEach((el) => { el.hidden = !el.dataset.for.split(" ").includes(st.type); });
+        if (src === "type") buildIn(pvBody);
         pv.style.setProperty("--pa", st.color.a); pv.style.setProperty("--pb", st.color.b);
         brief.style.setProperty("--pa", st.color.a);
-        pmBrand.textContent = name || "Sua Startup"; pmTitle.textContent = tag || "Sua grande ideia começa aqui";
+        pmBrand.textContent = name || "Sua Startup"; pmTitle.textContent = shown || "Sua grande ideia começa aqui";
 
-        sumPlan.textContent = T.plan; sumPlanWhy.textContent = T.why;
-        const e = eta(); sumEta.textContent = e.text; sumEtaWhy.textContent = e.why;
+        swap(sumPlan, T.plan, "morph"); swap(sumPlanWhy, T.why, "morph");
+        const e = eta(); swap(sumEta, e.text, "morph"); swap(sumEtaWhy, e.why, "morph");
+        renderTest();
 
-        const text = [
+        const clean = (t) => t.replace(/[.!?]+$/, "");
+        const lines = [
           "Olá! Quero a página da minha startup em um dia.",
           `Formato: ${T.label}.`,
           `Nome: ${name || "(a definir)"}.`,
-          `Ideia: ${tag ? tag.replace(/[.!?]+$/, "") : "(a definir)"}.`,
-          `Cor: ${st.color.name}. Tom: ${TONES[st.tone]}.`,
-          `Prazo: ${when}.`,
-          `Pacote que vi: ${T.plan}.`
-        ].join("\n");
+          `Ideia${tagB ? " A" : ""}: ${tagA ? clean(tagA) : "(a definir)"}.`
+        ];
+        if (tagB) lines.push(`Ideia B: ${clean(tagB)}. Quero testar as duas${V.A.res && V.B.res ? ` (clareza: A ${V.A.res.score}, B ${V.B.res.score})` : ""}.`);
+        lines.push(`Cor: ${st.color.name}. Tom: ${TONES[st.tone]}.`, `Prazo: ${when}.`, `Pacote que vi: ${T.plan}.`);
+        const text = lines.join("\n");
         msg.textContent = text;
         cta.href = waLink(text);
       }
 
       /* grupos de opções: radio (tipos) ou botões liga/desliga, sempre com estado para leitores de tela */
-      function pick(group, sel, fn, radio) {
+      function pick(group, sel, fn, radio, src) {
         const items = $$(sel, group);
         const mark = (b) => items.forEach((x) => {
           const on = x === b;
@@ -1773,7 +2074,7 @@
           x.setAttribute(radio ? "aria-checked" : "aria-pressed", String(on));
           if (radio) x.tabIndex = on ? 0 : -1;
         });
-        items.forEach((b) => b.addEventListener("click", () => { mark(b); fn(b); update(); }));
+        items.forEach((b) => b.addEventListener("click", () => { mark(b); fn(b); update(src); }));
         mark(items.find((x) => x.classList.contains("sel")) || items[0]);
         if (radio) group.addEventListener("keydown", (e) => {
           if (!["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp"].includes(e.key)) return;
@@ -1784,20 +2085,102 @@
           n.click(); n.focus();
         });
       }
-      pick($("#types"), ".type", (b) => { st.type = b.dataset.type; st.tagIdx = 0; }, true);
-      pick($("#tones"), "button", (b) => { st.tone = b.dataset.tone; });
-      pick($("#swatches"), "button", (b) => { st.color = { a: b.dataset.a, b: b.dataset.b, name: b.dataset.name }; });
-      pick($("#devs"), "button", (b) => { pv.dataset.dev = b.dataset.dev; });
+      pick($("#types"), ".type", (b) => { st.type = b.dataset.type; st.tagIdx = 0; st.tagIdxB = 1; }, true, "type");
+      pick($("#tones"), "button", (b) => { st.tone = b.dataset.tone; }, false, "tone");
+      pick($("#swatches"), "button", (b) => { st.color = { a: b.dataset.a, b: b.dataset.b, name: b.dataset.name }; }, false, "color");
+      pick($("#devs"), "button", (b) => { pv.dataset.dev = b.dataset.dev; }, false, "dev");
+      tcBtns.forEach((b) => b.addEventListener("click", () => { st.show = b.dataset.v; update("show"); }));
 
+      const suggestion = (idx) => {
+        const T = TYPES[st.type], n = inName.value.trim() || "Sua Startup";
+        const s = T.tags[idx % T.tags.length].replace("{n}", n);
+        return s.charAt(0).toUpperCase() + s.slice(1);
+      };
       $("#suggest").addEventListener("click", () => {
-        const T = TYPES[st.type], n = inName.value.trim() || "sua ideia";
-        inTag.value = T.tags[st.tagIdx % T.tags.length].replace("{n}", n);
-        st.tagIdx++; update();
+        inTag.value = suggestion(st.tagIdx); st.tagIdx++;
+        if (inTagB.value.trim() === inTag.value.trim()) inTagB.value = "";
+        update("tag");
       });
-      [inName, inTag].forEach((el) => el.addEventListener("input", update));
-      inWhen.addEventListener("change", update);
-      update();
-      setInterval(update, 60000); // mantém o horário previsto atualizado
+      $("#suggestB").addEventListener("click", () => {
+        let s = suggestion(st.tagIdxB); st.tagIdxB++;
+        if (s === inTag.value.trim()) { s = suggestion(st.tagIdxB); st.tagIdxB++; }
+        inTagB.value = s; st.show = "B"; update("show");
+      });
+      inName.addEventListener("input", () => update("name"));
+      inTag.addEventListener("input", () => update("tag"));
+      inTagB.addEventListener("input", () => update("tagB"));
+      inWhen.addEventListener("change", () => update("when"));
+
+      /* ---- briefing escrito à mão ---- */
+      const wrText = $("#wrText"), wrCount = $("#wrCount"), wrMsg = $("#wrMsg"), wrCta = $("#wrCta"), wrHint = $("#wrHint");
+      const wrEta = $("#wrEta"), wrEtaWhy = $("#wrEtaWhy");
+      let typer = null;
+      function updateWrite() {
+        const t = wrText.value.trim(), ok = t.length >= 20;
+        wrCount.textContent = `${wrText.value.length}/1200`;
+        const text = t ? `Olá! Quero a página da minha startup em um dia. Segue o meu briefing:\n\n${t}` : "Escreva o briefing ao lado e a mensagem aparece aqui.";
+        wrMsg.textContent = text;
+        wrMsg.classList.toggle("is-empty", !t);
+        wrCta.setAttribute("aria-disabled", String(!ok));
+        wrCta.href = waLink(ok ? text : "Olá!");
+        wrHint.textContent = ok ? "Confira a mensagem acima. Ao enviar, o WhatsApp abre com o texto pronto." : "Escreva pelo menos 20 caracteres para enviar.";
+        const e = eta(); wrEta.textContent = e.text; wrEtaWhy.textContent = e.why;
+      }
+      wrCta.addEventListener("click", (e) => {
+        if (wrCta.getAttribute("aria-disabled") !== "true") return;
+        e.preventDefault(); e.stopPropagation();       // sem texto suficiente: não envia
+        wrText.focus();
+        wrText.classList.remove("shake"); void wrText.offsetWidth; wrText.classList.add("shake");
+      });
+      wrText.addEventListener("input", () => { clearInterval(typer); updateWrite(); });
+      $$("#wrChips button").forEach((b) => b.addEventListener("click", () => {
+        clearInterval(typer);
+        const lead = wrText.value && !wrText.value.endsWith("\n") ? "\n" : "";
+        wrText.value += lead + b.dataset.ins;
+        wrText.focus(); wrText.setSelectionRange(wrText.value.length, wrText.value.length);
+        updateWrite();
+      }));
+      $("#wrClear").addEventListener("click", () => { clearInterval(typer); wrText.value = ""; updateWrite(); wrText.focus(); });
+      $("#wrExample").addEventListener("click", () => {
+        clearInterval(typer); wrText.value = "";
+        if (!motion) { wrText.value = EXAMPLE; updateWrite(); return; }
+        let i = 0;                                       // o exemplo é "digitado" na caixa
+        typer = setInterval(() => {
+          i = Math.min(i + 4, EXAMPLE.length);
+          wrText.value = EXAMPLE.slice(0, i); updateWrite();
+          if (i >= EXAMPLE.length) clearInterval(typer);
+        }, 16);
+      });
+
+      /* ---- abas: teste ao vivo / escrever meu briefing ---- */
+      const tabs = $$('.mode-switch [role="tab"]'), pill = $(".mode-pill");
+      const panels = { live: $("#modeLive"), write: $("#modeWrite") };
+      const placePill = () => {
+        const t = tabs.find((x) => x.getAttribute("aria-selected") === "true");
+        pill.style.width = t.offsetWidth + "px";
+        pill.style.transform = `translateX(${t.offsetLeft}px)`;
+      };
+      function setMode(mode, focus) {
+        tabs.forEach((t) => { const on = t.dataset.mode === mode; t.setAttribute("aria-selected", String(on)); t.tabIndex = on ? 0 : -1; });
+        const on = panels[mode], off = panels[mode === "live" ? "write" : "live"];
+        off.hidden = true; on.hidden = false;
+        if (motion) { on.classList.remove("panel-in"); void on.offsetWidth; on.classList.add("panel-in"); }
+        placePill();
+        if (focus) tabs.find((t) => t.dataset.mode === mode).focus();
+      }
+      tabs.forEach((t) => t.addEventListener("click", () => setMode(t.dataset.mode)));
+      $(".mode-switch").addEventListener("keydown", (e) => {
+        if (!["ArrowLeft", "ArrowRight"].includes(e.key)) return;
+        e.preventDefault();
+        setMode(tabs.find((t) => t.getAttribute("aria-selected") === "true").dataset.mode === "live" ? "write" : "live", true);
+      });
+      addEventListener("resize", placePill);
+      (document.fonts ? document.fonts.ready : Promise.resolve()).then(placePill);
+
+      update("init");
+      updateWrite();
+      placePill();
+      setInterval(() => { update("tick"); updateWrite(); }, 60000);   // mantém o horário previsto atualizado
     })();
 
     /* ---------- Barra fixa de WhatsApp (celular): some quando já há outro botão de contato à vista ---------- */
