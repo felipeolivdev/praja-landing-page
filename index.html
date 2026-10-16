@@ -875,7 +875,7 @@
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
-      <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M14.500 2.500 5 14h6.500l-2 7.500L19 10h-6.500l2-7.500Z"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M14.500 2.500 5 14l6.500 0l-2 7.500L19 10h-6.500l2-7.500Z"/></symbol>
       <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/></symbol>
       <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.500"/><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></symbol>
       <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3 3.500 7.500v9L12 21l8.500-4.500v-9L12 3Z"/><path d="m3.500 7.500 8.500 4.500 8.500-4.500M12 12v9"/></symbol>
@@ -1053,10 +1053,10 @@
         <div class="split">
           <div class="reveal cutoff-col">
             <div class="spot cutoff">
-              <div class="cutoff-clock" aria-hidden="true">14<small>h</small></div>
+              <div class="cutoff-clock" aria-hidden="true">15<small>h</small></div>
               <h3>Horário de corte</h3>
-              <p>Fechou o pedido até as <strong>14h</strong> de um dia útil? A contagem de 24 horas começa na hora, e a página entra no ar até amanhã, no mesmo horário.</p>
-              <p class="cutoff-sub">Depois das 14h, começamos na manhã seguinte.</p>
+              <p>Fechou o pedido até as <strong>15h</strong> de um dia útil? A contagem de 24 horas começa na hora, e a página entra no ar até amanhã, no mesmo horário.</p>
+              <p class="cutoff-sub">Depois das 15h, começamos na manhã seguinte.</p>
             </div>
           </div>
           <div class="timeline" id="timeline">
@@ -1390,7 +1390,7 @@
         </div>
         <div class="faq reveal">
           <details><summary>Em 24 horas, de verdade?</summary><p>Sim. Com a conversa inicial feita, a página vai ao ar em até 24 horas. Para isso, o escopo é enxuto e focado em validar.</p></details>
-          <details><summary>E se eu fechar depois das 14h?</summary><p>A contagem de 24 horas começa na manhã do próximo dia útil. Fechando até as 14h, ela começa na hora.</p></details>
+          <details><summary>E se eu fechar depois das 15h?</summary><p>A contagem de 24 horas começa na manhã do próximo dia útil. Fechando até as 15h, ela começa na hora.</p></details>
           <details><summary>Preciso ter logo ou textos prontos?</summary><p>Não. Basta explicar a ideia. Eu escrevo a copy e uso uma identidade simples, caso você ainda não tenha uma.</p></details>
           <details><summary>De quem é a página depois de pronta?</summary><p>Sua. Você recebe os arquivos, a publicação fica na sua conta e não há mensalidade nem contrato de permanência.</p></details>
           <details><summary>Posso evoluir a página depois?</summary><p>Pode. A página é entregue em código limpo e fica sob o seu controle, então pode crescer junto com o produto.</p></details>
@@ -1719,17 +1719,17 @@
         if (diff === 1 && !isWeekend(d)) return "amanhã";
         return d.toLocaleDateString("pt-BR", { weekday: "long" });
       }
-      /* regra do horário de corte: pedido até 14h em dia útil começa na hora; senão, 9h do próximo dia útil */
+      /* regra do horário de corte: pedido até 15h em dia útil começa na hora; senão, 9h do próximo dia útil */
       function eta(real = new Date()) {
         const now = toBRT(real);
-        if (!isWeekend(now) && now.getHours() < 14) {
+        if (!isWeekend(now) && now.getHours() < 15) {
           const end = new Date(now); end.setDate(end.getDate() + 1);
-          return { text: `${dayLabel(end, now)} às ${pad(end.getHours())}:${pad(end.getMinutes())}`, why: "Enviando agora, antes das 14h (horário de Brasília), a contagem de 24 horas começa na hora." };
+          return { text: `${dayLabel(end, now)} às ${pad(end.getHours())}:${pad(end.getMinutes())}`, why: "Enviando agora, antes das 15h (horário de Brasília), a contagem de 24 horas começa na hora." };
         }
         const start = new Date(now); start.setHours(9, 0, 0, 0);
         do { start.setDate(start.getDate() + 1); } while (isWeekend(start));
         const end = new Date(start); end.setDate(end.getDate() + 1);
-        return { text: `${dayLabel(end, now)} às ${pad(end.getHours())}:00`, why: "Depois das 14h (ou no fim de semana), a contagem começa às 9h do próximo dia útil, horário de Brasília." };
+        return { text: `${dayLabel(end, now)} às ${pad(end.getHours())}:00`, why: "Depois das 15h (ou no fim de semana), a contagem começa às 9h do próximo dia útil, horário de Brasília." };
       }
 
       function update() {

@@ -29,7 +29,7 @@ Tudo o que a página promete aparece nela de alguma forma: o selo "1 dia", o rel
 |---|---|
 | **Hero** | Promessa principal, mockup de navegador que começa pronto e de tempos em tempos "refaz" a página, e CTA para o WhatsApp |
 | **Comparação** | Agência × no-code sozinho × PraJá, em prazo, esforço, preço, copy e design e posse da página |
-| **Processo** | Como cabe tudo em um dia, horário de corte (14h) e linha do tempo guiada pelo scroll |
+| **Processo** | Como cabe tudo em um dia, horário de corte (15h) e linha do tempo guiada pelo scroll |
 | **Exemplos** | Galeria de quatro páginas fictícias (lista de espera, pré-venda, software e evento) com identidades visuais diferentes, que podem ser ampliadas |
 | **Resultados** | Painel ilustrativo de teste de demanda e o que a pessoa leva depois da entrega |
 | **Briefing** | Formulário interativo em quatro passos com prévia ao vivo, pacote indicado e horário previsto de entrega |
@@ -40,7 +40,7 @@ Tudo o que a página promete aparece nela de alguma forma: o selo "1 dia", o rel
 
 **Interação**
 - **Briefing em 4 passos:** formato (lista de espera, pré-venda, software ou evento), ideia com sugestão de frase, cor e tom de voz, e prazo. A prévia muda de layout por formato e pode ser vista em modo computador ou celular. A mensagem do WhatsApp sai montada com as escolhas.
-- **Horário previsto de entrega** calculado pelo **horário de Brasília** (e não pelo relógio de quem visita), com a regra do corte às 14h, fins de semana e próximo dia útil. A lógica foi testada em vários fusos.
+- **Horário previsto de entrega** calculado pelo **horário de Brasília** (e não pelo relógio de quem visita), com a regra do corte às 15h, fins de semana e próximo dia útil. A lógica foi testada em vários fusos.
 - **Painel de resultados animado:** as barras crescem em sequência, os números contam até o valor final, e depois o painel simula novas visitas, cliques e cadastros ao vivo (dados ilustrativos). Cada barra mostra um detalhe ao passar o mouse ou receber foco.
 - Galeria com janela de ampliação (`<dialog>`), que leva ao WhatsApp com o nome do exemplo na mensagem.
 - Brilho que segue o cursor, spotlight nos cards, inclinação 3D no mockup do hero e linha do tempo que se preenche conforme a leitura.
