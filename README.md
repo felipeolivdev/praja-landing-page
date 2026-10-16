@@ -47,6 +47,7 @@ Tudo o que a página promete aparece nela de alguma forma: o selo "1 dia", o rel
 - Galeria que monta cada exemplo peça por peça ao entrar na tela (e de novo na janela ampliada, um `<dialog>` que leva ao WhatsApp com o nome do exemplo na mensagem).
 - Brilho que segue o cursor, spotlight nos cards, inclinação 3D no mockup do hero e linha do tempo que se preenche conforme a leitura.
 - Poucos caminhos para o WhatsApp, cada um com um papel: topo (desktop) ou barra fixa (celular), hero, briefing, pacotes e CTA final. As faixas do meio levam ao briefing.
+- No celular, um botão "voltar ao topo" aparece depois que a pessoa rola a página até o fim (e some ao voltar ao início); fica acima da barra fixa e respeita `prefers-reduced-motion`.
 - No celular, menu compacto e uma faixa que mostra a prévia do briefing ao vivo enquanto a pessoa preenche.
 
 **Acessibilidade**
